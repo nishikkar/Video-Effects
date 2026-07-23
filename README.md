@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # video_effects
 
 Standalone folder for testing and iterating on the **video → SFX → output** pipeline.
@@ -192,3 +193,7 @@ Key ideas to convey:
 - New SFX assets can be added by placing files in `assets/sfx/` and adding entries to `AVAILABLE_SFX`
 
 Use this README as the current project summary; do not assume the old keyword-based SFX engine is still the only decision mechanism.
+=======
+# Video-Effects
+AI enabled video editing software to add sound effects in a video.
+>>>>>>> 6a6303f935636ff6dd88aad23b6ea957fa41c08f
