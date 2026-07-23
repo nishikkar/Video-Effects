@@ -1,0 +1,515 @@
+{
+  "video_id": "vid_207f9154",
+  "source_video": "vid_207f9154.webm",
+  "clip_start": 0,
+  "clip_end": 43.76,
+  "words": [
+    {
+      "id": "w001",
+      "word": "Okay,",
+      "start": 9.01,
+      "end": 9.65
+    },
+    {
+      "id": "w002",
+      "word": "so",
+      "start": 9.85,
+      "end": 9.97
+    },
+    {
+      "id": "w003",
+      "word": "the",
+      "start": 9.97,
+      "end": 10.35
+    },
+    {
+      "id": "w004",
+      "word": "best",
+      "start": 10.35,
+      "end": 10.69
+    },
+    {
+      "id": "w005",
+      "word": "reaction",
+      "start": 10.69,
+      "end": 11.15
+    },
+    {
+      "id": "w006",
+      "word": "I",
+      "start": 11.15,
+      "end": 11.33
+    },
+    {
+      "id": "w007",
+      "word": "have",
+      "start": 11.33,
+      "end": 11.51
+    },
+    {
+      "id": "w008",
+      "word": "got",
+      "start": 11.51,
+      "end": 11.69
+    },
+    {
+      "id": "w009",
+      "word": "is",
+      "start": 11.69,
+      "end": 12.11
+    },
+    {
+      "id": "w010",
+      "word": "when",
+      "start": 12.11,
+      "end": 12.77
+    },
+    {
+      "id": "w011",
+      "word": "people",
+      "start": 12.77,
+      "end": 13.15
+    },
+    {
+      "id": "w012",
+      "word": "tell",
+      "start": 13.15,
+      "end": 13.55
+    },
+    {
+      "id": "w013",
+      "word": "me",
+      "start": 13.55,
+      "end": 13.85
+    },
+    {
+      "id": "w014",
+      "word": "that",
+      "start": 13.85,
+      "end": 14.17
+    },
+    {
+      "id": "w015",
+      "word": "they",
+      "start": 14.17,
+      "end": 14.53
+    },
+    {
+      "id": "w016",
+      "word": "actually",
+      "start": 14.53,
+      "end": 15.15
+    },
+    {
+      "id": "w017",
+      "word": "face",
+      "start": 15.15,
+      "end": 15.65
+    },
+    {
+      "id": "w018",
+      "word": "the",
+      "start": 15.65,
+      "end": 16.05
+    },
+    {
+      "id": "w019",
+      "word": "problem",
+      "start": 16.05,
+      "end": 16.49
+    },
+    {
+      "id": "w020",
+      "word": "of",
+      "start": 16.49,
+      "end": 16.83
+    },
+    {
+      "id": "w021",
+      "word": "hitting",
+      "start": 17.73,
+      "end": 18.39
+    },
+    {
+      "id": "w022",
+      "word": "limits",
+      "start": 18.39,
+      "end": 18.85
+    },
+    {
+      "id": "w023",
+      "word": "in",
+      "start": 18.85,
+      "end": 19.39
+    },
+    {
+      "id": "w024",
+      "word": "AI",
+      "start": 19.39,
+      "end": 20.23
+    },
+    {
+      "id": "w025",
+      "word": "tools",
+      "start": 20.23,
+      "end": 20.89
+    },
+    {
+      "id": "w026",
+      "word": "like",
+      "start": 20.89,
+      "end": 21.25
+    },
+    {
+      "id": "w027",
+      "word": "plot",
+      "start": 21.25,
+      "end": 21.61
+    },
+    {
+      "id": "w028",
+      "word": "and",
+      "start": 21.61,
+      "end": 21.94
+    },
+    {
+      "id": "w029",
+      "word": "They",
+      "start": 23.05,
+      "end": 23.29
+    },
+    {
+      "id": "w030",
+      "word": "will",
+      "start": 23.29,
+      "end": 23.49
+    },
+    {
+      "id": "w031",
+      "word": "stuck",
+      "start": 23.49,
+      "end": 23.83
+    },
+    {
+      "id": "w032",
+      "word": "they",
+      "start": 23.83,
+      "end": 24.35
+    },
+    {
+      "id": "w033",
+      "word": "don't",
+      "start": 24.35,
+      "end": 24.55
+    },
+    {
+      "id": "w034",
+      "word": "do",
+      "start": 24.55,
+      "end": 24.77
+    },
+    {
+      "id": "w035",
+      "word": "their",
+      "start": 24.77,
+      "end": 25.01
+    },
+    {
+      "id": "w036",
+      "word": "projects",
+      "start": 25.01,
+      "end": 25.51
+    },
+    {
+      "id": "w037",
+      "word": "or",
+      "start": 25.51,
+      "end": 25.77
+    },
+    {
+      "id": "w038",
+      "word": "their",
+      "start": 25.77,
+      "end": 25.99
+    },
+    {
+      "id": "w039",
+      "word": "work",
+      "start": 25.99,
+      "end": 26.29
+    },
+    {
+      "id": "w040",
+      "word": "that",
+      "start": 26.29,
+      "end": 26.65
+    },
+    {
+      "id": "w041",
+      "word": "they",
+      "start": 26.65,
+      "end": 26.89
+    },
+    {
+      "id": "w042",
+      "word": "have",
+      "start": 26.89,
+      "end": 27.05
+    },
+    {
+      "id": "w043",
+      "word": "already",
+      "start": 27.05,
+      "end": 27.35
+    },
+    {
+      "id": "w044",
+      "word": "done",
+      "start": 27.35,
+      "end": 27.67
+    },
+    {
+      "id": "w045",
+      "word": "in",
+      "start": 27.67,
+      "end": 27.85
+    },
+    {
+      "id": "w046",
+      "word": "their",
+      "start": 27.85,
+      "end": 28.01
+    },
+    {
+      "id": "w047",
+      "word": "mind",
+      "start": 28.01,
+      "end": 28.35
+    },
+    {
+      "id": "w048",
+      "word": "So",
+      "start": 28.35,
+      "end": 29.45
+    },
+    {
+      "id": "w049",
+      "word": "that",
+      "start": 29.45,
+      "end": 29.89
+    },
+    {
+      "id": "w050",
+      "word": "is",
+      "start": 29.89,
+      "end": 30.15
+    },
+    {
+      "id": "w051",
+      "word": "the",
+      "start": 30.15,
+      "end": 30.43
+    },
+    {
+      "id": "w052",
+      "word": "sort",
+      "start": 30.43,
+      "end": 30.67
+    },
+    {
+      "id": "w053",
+      "word": "of",
+      "start": 30.67,
+      "end": 30.83
+    },
+    {
+      "id": "w054",
+      "word": "the",
+      "start": 30.83,
+      "end": 30.95
+    },
+    {
+      "id": "w055",
+      "word": "best",
+      "start": 30.95,
+      "end": 31.23
+    },
+    {
+      "id": "w056",
+      "word": "reaction",
+      "start": 31.23,
+      "end": 31.71
+    },
+    {
+      "id": "w057",
+      "word": "and",
+      "start": 31.71,
+      "end": 31.99
+    },
+    {
+      "id": "w058",
+      "word": "I",
+      "start": 31.99,
+      "end": 32.49
+    },
+    {
+      "id": "w059",
+      "word": "get",
+      "start": 32.49,
+      "end": 32.69
+    },
+    {
+      "id": "w060",
+      "word": "so",
+      "start": 32.69,
+      "end": 32.95
+    },
+    {
+      "id": "w061",
+      "word": "much",
+      "start": 32.95,
+      "end": 33.11
+    },
+    {
+      "id": "w062",
+      "word": "satisfaction",
+      "start": 33.11,
+      "end": 33.61
+    },
+    {
+      "id": "w063",
+      "word": "of",
+      "start": 33.61,
+      "end": 34.01
+    },
+    {
+      "id": "w064",
+      "word": "it",
+      "start": 34.01,
+      "end": 34.17
+    },
+    {
+      "id": "w065",
+      "word": "when",
+      "start": 34.17,
+      "end": 34.49
+    },
+    {
+      "id": "w066",
+      "word": "I",
+      "start": 34.49,
+      "end": 34.71
+    },
+    {
+      "id": "w067",
+      "word": "think",
+      "start": 34.71,
+      "end": 35.35
+    },
+    {
+      "id": "w068",
+      "word": "that",
+      "start": 35.35,
+      "end": 35.67
+    },
+    {
+      "id": "w069",
+      "word": "I",
+      "start": 35.67,
+      "end": 36
+    },
+    {
+      "id": "w070",
+      "word": "Somehow",
+      "start": 36,
+      "end": 37.62
+    },
+    {
+      "id": "w071",
+      "word": "helped",
+      "start": 37.62,
+      "end": 38.4
+    },
+    {
+      "id": "w072",
+      "word": "in",
+      "start": 38.4,
+      "end": 38.78
+    },
+    {
+      "id": "w073",
+      "word": "development",
+      "start": 38.78,
+      "end": 39.2
+    },
+    {
+      "id": "w074",
+      "word": "of",
+      "start": 39.2,
+      "end": 39.62
+    },
+    {
+      "id": "w075",
+      "word": "an",
+      "start": 39.62,
+      "end": 39.82
+    },
+    {
+      "id": "w076",
+      "word": "app",
+      "start": 39.82,
+      "end": 40.1
+    },
+    {
+      "id": "w077",
+      "word": "which",
+      "start": 40.1,
+      "end": 40.9
+    },
+    {
+      "id": "w078",
+      "word": "actually",
+      "start": 40.9,
+      "end": 41.38
+    },
+    {
+      "id": "w079",
+      "word": "solves",
+      "start": 41.38,
+      "end": 41.92
+    },
+    {
+      "id": "w080",
+      "word": "failing",
+      "start": 41.92,
+      "end": 42.3
+    },
+    {
+      "id": "w081",
+      "word": "problems",
+      "start": 42.3,
+      "end": 42.78
+    },
+    {
+      "id": "w082",
+      "word": "of",
+      "start": 42.78,
+      "end": 43.32
+    },
+    {
+      "id": "w083",
+      "word": "a",
+      "start": 43.32,
+      "end": 43.48
+    },
+    {
+      "id": "w084",
+      "word": "user",
+      "start": 43.48,
+      "end": 43.76
+    }
+  ],
+  "protected_ranges": [],
+  "question_timestamps": [],
+  "thinking_ranges": []
+}

@@ -1,0 +1,701 @@
+{
+  "video_id": "vid_486e6ffb",
+  "source_video": "vid_486e6ffb.mp4",
+  "clip_start": 0,
+  "clip_end": 86.49,
+  "words": [
+    {
+      "id": "w001",
+      "word": "Something",
+      "start": 6.06,
+      "end": 6.86
+    },
+    {
+      "id": "w002",
+      "word": "would",
+      "start": 6.86,
+      "end": 7.58
+    },
+    {
+      "id": "w003",
+      "word": "be",
+      "start": 7.58,
+      "end": 7.88
+    },
+    {
+      "id": "w004",
+      "word": "that",
+      "start": 7.88,
+      "end": 8.32
+    },
+    {
+      "id": "w005",
+      "word": "I",
+      "start": 8.32,
+      "end": 8.5
+    },
+    {
+      "id": "w006",
+      "word": "am",
+      "start": 8.5,
+      "end": 8.62
+    },
+    {
+      "id": "w007",
+      "word": "a",
+      "start": 8.62,
+      "end": 8.7
+    },
+    {
+      "id": "w008",
+      "word": "bit",
+      "start": 8.7,
+      "end": 8.86
+    },
+    {
+      "id": "w009",
+      "word": "of",
+      "start": 8.86,
+      "end": 9.04
+    },
+    {
+      "id": "w010",
+      "word": "an",
+      "start": 9.04,
+      "end": 9.2
+    },
+    {
+      "id": "w011",
+      "word": "attention",
+      "start": 9.2,
+      "end": 9.54
+    },
+    {
+      "id": "w012",
+      "word": "seeker",
+      "start": 9.54,
+      "end": 10.22
+    },
+    {
+      "id": "w013",
+      "word": "like",
+      "start": 10.22,
+      "end": 11.66
+    },
+    {
+      "id": "w014",
+      "word": "Yeah,",
+      "start": 12.74,
+      "end": 13.26
+    },
+    {
+      "id": "w015",
+      "word": "so",
+      "start": 13.26,
+      "end": 13.56
+    },
+    {
+      "id": "w016",
+      "word": "that's",
+      "start": 13.56,
+      "end": 13.86
+    },
+    {
+      "id": "w017",
+      "word": "a",
+      "start": 13.86,
+      "end": 13.96
+    },
+    {
+      "id": "w018",
+      "word": "problem",
+      "start": 13.96,
+      "end": 14.32
+    },
+    {
+      "id": "w019",
+      "word": "I",
+      "start": 14.32,
+      "end": 14.56
+    },
+    {
+      "id": "w020",
+      "word": "have",
+      "start": 14.56,
+      "end": 14.78
+    },
+    {
+      "id": "w021",
+      "word": "I",
+      "start": 14.78,
+      "end": 14.98
+    },
+    {
+      "id": "w022",
+      "word": "really",
+      "start": 14.98,
+      "end": 15.28
+    },
+    {
+      "id": "w023",
+      "word": "love",
+      "start": 15.28,
+      "end": 15.92
+    },
+    {
+      "id": "w024",
+      "word": "Getting",
+      "start": 17.06,
+      "end": 17.52
+    },
+    {
+      "id": "w025",
+      "word": "like",
+      "start": 17.52,
+      "end": 18.3
+    },
+    {
+      "id": "w026",
+      "word": "attention.",
+      "start": 18.3,
+      "end": 19.24
+    },
+    {
+      "id": "w027",
+      "word": "So",
+      "start": 19.92,
+      "end": 20.8
+    },
+    {
+      "id": "w028",
+      "word": "yeah",
+      "start": 20.8,
+      "end": 21.44
+    },
+    {
+      "id": "w029",
+      "word": "that",
+      "start": 21.44,
+      "end": 22
+    },
+    {
+      "id": "w030",
+      "word": "would",
+      "start": 22,
+      "end": 22.56
+    },
+    {
+      "id": "w031",
+      "word": "definitely",
+      "start": 22.56,
+      "end": 23
+    },
+    {
+      "id": "w032",
+      "word": "be",
+      "start": 23,
+      "end": 23.34
+    },
+    {
+      "id": "w033",
+      "word": "one",
+      "start": 23.34,
+      "end": 23.64
+    },
+    {
+      "id": "w034",
+      "word": "thing",
+      "start": 23.64,
+      "end": 23.88
+    },
+    {
+      "id": "w035",
+      "word": "questionable",
+      "start": 36.17,
+      "end": 36.91
+    },
+    {
+      "id": "w036",
+      "word": "decision",
+      "start": 36.91,
+      "end": 37.89
+    },
+    {
+      "id": "w037",
+      "word": "It",
+      "start": 37.89,
+      "end": 38.63
+    },
+    {
+      "id": "w038",
+      "word": "has",
+      "start": 38.63,
+      "end": 39.43
+    },
+    {
+      "id": "w039",
+      "word": "to",
+      "start": 39.43,
+      "end": 39.63
+    },
+    {
+      "id": "w040",
+      "word": "be",
+      "start": 39.63,
+      "end": 39.85
+    },
+    {
+      "id": "w041",
+      "word": "like",
+      "start": 39.85,
+      "end": 40.71
+    },
+    {
+      "id": "w042",
+      "word": "when",
+      "start": 40.71,
+      "end": 41.15
+    },
+    {
+      "id": "w043",
+      "word": "to",
+      "start": 41.15,
+      "end": 41.47
+    },
+    {
+      "id": "w044",
+      "word": "play",
+      "start": 41.47,
+      "end": 41.79
+    },
+    {
+      "id": "w045",
+      "word": "football",
+      "start": 41.79,
+      "end": 42.31
+    },
+    {
+      "id": "w046",
+      "word": "today",
+      "start": 42.31,
+      "end": 42.93
+    },
+    {
+      "id": "w047",
+      "word": "at",
+      "start": 43.83,
+      "end": 44.71
+    },
+    {
+      "id": "w048",
+      "word": "around",
+      "start": 44.71,
+      "end": 45.29
+    },
+    {
+      "id": "w049",
+      "word": "4",
+      "start": 46.07,
+      "end": 46.71
+    },
+    {
+      "id": "w050",
+      "word": "p",
+      "start": 46.71,
+      "end": 47.03
+    },
+    {
+      "id": "w051",
+      "word": ".m",
+      "start": 47.03,
+      "end": 47.15
+    },
+    {
+      "id": "w052",
+      "word": "In",
+      "start": 47.91,
+      "end": 48.55
+    },
+    {
+      "id": "w053",
+      "word": "scorching",
+      "start": 48.55,
+      "end": 49.19
+    },
+    {
+      "id": "w054",
+      "word": "heat",
+      "start": 49.19,
+      "end": 49.61
+    },
+    {
+      "id": "w055",
+      "word": "I",
+      "start": 49.61,
+      "end": 51.15
+    },
+    {
+      "id": "w056",
+      "word": "was",
+      "start": 51.15,
+      "end": 51.35
+    },
+    {
+      "id": "w057",
+      "word": "burned",
+      "start": 51.35,
+      "end": 52.23
+    },
+    {
+      "id": "w058",
+      "word": "I",
+      "start": 53.39,
+      "end": 54.03
+    },
+    {
+      "id": "w059",
+      "word": "don't",
+      "start": 54.03,
+      "end": 54.35
+    },
+    {
+      "id": "w060",
+      "word": "know",
+      "start": 54.35,
+      "end": 54.67
+    },
+    {
+      "id": "w061",
+      "word": "how",
+      "start": 54.67,
+      "end": 54.83
+    },
+    {
+      "id": "w062",
+      "word": "to",
+      "start": 54.83,
+      "end": 55.01
+    },
+    {
+      "id": "w063",
+      "word": "describe",
+      "start": 55.01,
+      "end": 55.33
+    },
+    {
+      "id": "w064",
+      "word": "what",
+      "start": 55.33,
+      "end": 56.23
+    },
+    {
+      "id": "w065",
+      "word": "happened",
+      "start": 56.23,
+      "end": 56.67
+    },
+    {
+      "id": "w066",
+      "word": "to",
+      "start": 56.67,
+      "end": 56.91
+    },
+    {
+      "id": "w067",
+      "word": "Still",
+      "start": 57.69,
+      "end": 58.13
+    },
+    {
+      "id": "w068",
+      "word": "my",
+      "start": 58.13,
+      "end": 58.43
+    },
+    {
+      "id": "w069",
+      "word": "head",
+      "start": 58.43,
+      "end": 58.73
+    },
+    {
+      "id": "w070",
+      "word": "is",
+      "start": 58.73,
+      "end": 58.97
+    },
+    {
+      "id": "w071",
+      "word": "aching",
+      "start": 58.97,
+      "end": 59.41
+    },
+    {
+      "id": "w072",
+      "word": "so",
+      "start": 59.41,
+      "end": 59.95
+    },
+    {
+      "id": "w073",
+      "word": "that",
+      "start": 59.95,
+      "end": 60.13
+    },
+    {
+      "id": "w074",
+      "word": "might",
+      "start": 60.13,
+      "end": 60.39
+    },
+    {
+      "id": "w075",
+      "word": "be",
+      "start": 60.39,
+      "end": 60.57
+    },
+    {
+      "id": "w076",
+      "word": "a",
+      "start": 60.57,
+      "end": 60.65
+    },
+    {
+      "id": "w077",
+      "word": "question",
+      "start": 60.65,
+      "end": 60.91
+    },
+    {
+      "id": "w078",
+      "word": "I",
+      "start": 60.91,
+      "end": 61.67
+    },
+    {
+      "id": "w079",
+      "word": "will",
+      "start": 61.67,
+      "end": 61.67
+    },
+    {
+      "id": "w080",
+      "word": "just",
+      "start": 61.67,
+      "end": 61.67
+    },
+    {
+      "id": "w081",
+      "word": "but",
+      "start": 61.67,
+      "end": 61.67
+    },
+    {
+      "id": "w082",
+      "word": "I",
+      "start": 61.67,
+      "end": 61.95
+    },
+    {
+      "id": "w083",
+      "word": "enjoyed",
+      "start": 61.95,
+      "end": 62.41
+    },
+    {
+      "id": "w084",
+      "word": "it",
+      "start": 62.41,
+      "end": 62.85
+    },
+    {
+      "id": "w085",
+      "word": "but",
+      "start": 62.85,
+      "end": 63.37
+    },
+    {
+      "id": "w086",
+      "word": "it",
+      "start": 63.37,
+      "end": 63.51
+    },
+    {
+      "id": "w087",
+      "word": "might",
+      "start": 63.51,
+      "end": 64.21
+    },
+    {
+      "id": "w088",
+      "word": "be",
+      "start": 64.21,
+      "end": 64.57
+    },
+    {
+      "id": "w089",
+      "word": "a",
+      "start": 64.57,
+      "end": 64.71
+    },
+    {
+      "id": "w090",
+      "word": "questionable",
+      "start": 64.71,
+      "end": 65.31
+    },
+    {
+      "id": "w091",
+      "word": "decision",
+      "start": 65.31,
+      "end": 65.85
+    },
+    {
+      "id": "w092",
+      "word": "We",
+      "start": 71.38,
+      "end": 71.76
+    },
+    {
+      "id": "w093",
+      "word": "are",
+      "start": 71.76,
+      "end": 71.88
+    },
+    {
+      "id": "w094",
+      "word": "just",
+      "start": 71.88,
+      "end": 72.14
+    },
+    {
+      "id": "w095",
+      "word": "thing",
+      "start": 72.14,
+      "end": 72.52
+    },
+    {
+      "id": "w096",
+      "word": "I",
+      "start": 74.92,
+      "end": 75.24
+    },
+    {
+      "id": "w097",
+      "word": "don't",
+      "start": 75.24,
+      "end": 75.42
+    },
+    {
+      "id": "w098",
+      "word": "really",
+      "start": 75.42,
+      "end": 75.62
+    },
+    {
+      "id": "w099",
+      "word": "know",
+      "start": 75.62,
+      "end": 75.96
+    },
+    {
+      "id": "w100",
+      "word": "what",
+      "start": 75.96,
+      "end": 76.28
+    },
+    {
+      "id": "w101",
+      "word": "is",
+      "start": 76.28,
+      "end": 76.88
+    },
+    {
+      "id": "w102",
+      "word": "the",
+      "start": 76.88,
+      "end": 77.14
+    },
+    {
+      "id": "w103",
+      "word": "way",
+      "start": 77.14,
+      "end": 77.34
+    },
+    {
+      "id": "w104",
+      "word": "you're",
+      "start": 77.34,
+      "end": 77.52
+    },
+    {
+      "id": "w105",
+      "word": "just",
+      "start": 77.52,
+      "end": 77.78
+    },
+    {
+      "id": "w106",
+      "word": "I",
+      "start": 77.78,
+      "end": 78.7
+    },
+    {
+      "id": "w107",
+      "word": "saw",
+      "start": 78.7,
+      "end": 79.18
+    },
+    {
+      "id": "w108",
+      "word": "today",
+      "start": 79.18,
+      "end": 79.78
+    },
+    {
+      "id": "w109",
+      "word": "I",
+      "start": 79.78,
+      "end": 80.62
+    },
+    {
+      "id": "w110",
+      "word": "can",
+      "start": 85.07,
+      "end": 85.25
+    },
+    {
+      "id": "w111",
+      "word": "really",
+      "start": 85.25,
+      "end": 85.51
+    },
+    {
+      "id": "w112",
+      "word": "come",
+      "start": 85.51,
+      "end": 85.71
+    },
+    {
+      "id": "w113",
+      "word": "to",
+      "start": 85.71,
+      "end": 85.91
+    },
+    {
+      "id": "w114",
+      "word": "remember",
+      "start": 85.91,
+      "end": 86.13
+    },
+    {
+      "id": "w115",
+      "word": "this",
+      "start": 86.13,
+      "end": 86.49
+    }
+  ],
+  "protected_ranges": [],
+  "question_timestamps": [],
+  "thinking_ranges": []
+}

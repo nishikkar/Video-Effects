@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SFX Studio — Video Effects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0c;
+      --surface: #111116;
+      --surface2: #1a1a22;
+      --surface3: #22222e;
+      --border: #2a2a38;
+      --accent: #7c5cfc;
+      --accent-dim: rgba(124, 92, 252, 0.15);
+      --accent2: #00e5a0;
+      --accent2-dim: rgba(0, 229, 160, 0.12);
+      --warn: #f97316;
+      --warn-dim: rgba(249, 115, 22, 0.12);
+      --text: #e8e8f0;
+      --text-dim: #7070a0;
+      --text-muted: #404060;
+      --red: #f43f5e;
+      --mono: 'DM Mono', monospace;
+      --display: 'Syne', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--display);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    .app {
+      display: grid;
+      grid-template-rows: 56px 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    header .logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    header .logo span { color: var(--accent); }
+    header .badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 8px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      border: 1px solid rgba(124,92,252,0.3);
+    }
+    header .status-bar {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+    .status-dot.active { background: var(--accent2); box-shadow: 0 0 6px var(--accent2); }
+
+    .main {
+      display: grid;
+      grid-template-columns: 340px 1fr 320px;
+      overflow: hidden;
+    }
+
+    /* ── Panel Base ── */
+    .panel {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-right: 1px solid var(--border);
+    }
+    .panel:last-child { border-right: none; }
+
+    .panel-header {
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .panel-header .step {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 2px;
+      letter-spacing: 0.08em;
+    }
+    .panel-header h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .panel-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+    }
+    .panel-body::-webkit-scrollbar { width: 4px; }
+    .panel-body::-webkit-scrollbar-track { background: transparent; }
+    .panel-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    /* ── Drop Zone ── */
+    .drop-zone {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .drop-zone:hover, .drop-zone.drag-over {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .drop-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .drop-zone .icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .drop-zone p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .drop-zone strong { color: var(--text); }
+    .drop-zone .formats {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* ── Video Preview ── */
+    .video-preview {
+      margin-top: 16px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      display: none;
+    }
+    .video-preview video {
+      width: 100%;
+      display: block;
+    }
+    .video-meta {
+      padding: 10px 12px;
+      background: var(--surface2);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      display: flex;
+      gap: 12px;
+    }
+    .video-meta span { color: var(--text); }
+
+    /* ── Upload Progress ── */
+    .progress-bar-wrap {
+      margin-top: 16px;
+      display: none;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+    .progress-bar {
+      height: 4px;
+      background: var(--surface3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+
+    /* ── Btn ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s;
+      width: 100%;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover:not(:disabled) { background: #6b4de8; }
+    .btn-secondary {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--surface3); }
+    .btn-success {
+      background: var(--accent2);
+      color: #000;
+    }
+    .btn-success:hover:not(:disabled) { background: #00cc8e; }
+
+    /* ── Transcript Panel ── */
+    .transcript-area {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 2;
+      color: var(--text-dim);
+      min-height: 200px;
+    }
+    .transcript-word {
+      display: inline;
+      padding: 2px 3px;
+      border-radius: 3px;
+      cursor: default;
+      transition: background 0.1s;
+    }
+    .transcript-word:hover { background: var(--surface3); color: var(--text); }
+    .transcript-word.has-sfx {
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+    .transcript-sfx-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      margin-left: 1px;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+    .transcript-stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .stat-chip {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+    }
+    .stat-chip b { color: var(--text); }
+
+    /* ── Status Message ── */
+    .status-msg {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .status-msg.info { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(124,92,252,0.2); }
+    .status-msg.success { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(0,229,160,0.2); }
+    .status-msg.error { background: rgba(244,63,94,0.1); color: var(--red); border: 1px solid rgba(244,63,94,0.2); }
+    .status-msg.warn { background: var(--warn-dim); color: var(--warn); border: 1px solid rgba(249,115,22,0.2); }
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── SFX Events ── */
+    .sfx-event {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .sfx-event .color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .sfx-event .evt-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .sfx-event .evt-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+    .sfx-event .evt-trigger {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .sfx-event .confidence-bar {
+      margin-top: 6px;
+      height: 3px;
+      background: var(--surface3);
+      border-radius: 2px;
+    }
+    .sfx-event .confidence-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+    .sfx-toggle {
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toggle-checkbox {
+      appearance: none;
+      width: 32px;
+      height: 18px;
+      border-radius: 9px;
+      background: var(--surface3);
+      cursor: pointer;
+      position: relative;
+      transition: background 0.2s;
+      border: 1px solid var(--border);
+    }
+    .toggle-checkbox:checked { background: var(--accent); border-color: var(--accent); }
+    .toggle-checkbox::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+      top: 2px;
+      left: 2px;
+      transition: left 0.2s;
+    }
+    .toggle-checkbox:checked::after { left: 16px; }
+
+    .sfx-summary-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .type-chip {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ── Output Panel ── */
+    .output-video-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      display: none;
+    }
+    .output-video-wrap video { width: 100%; display: block; }
+    .output-meta {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      display: none;
+    }
+    .output-meta .meta-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+    }
+    .output-meta .meta-row span { color: var(--text); }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    /* ── Empty State ── */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state .empty-icon { font-size: 28px; margin-bottom: 8px; }
+    .empty-state p { font-size: 12px; line-height: 1.6; }
+
+    /* ── JSON Viewer ── */
+    .json-viewer {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    /* ── Manual Edit Controls ── */
+    .btn-remove {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 2px 5px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: color 0.15s, background 0.15s;
+      flex-shrink: 0;
+    }
+    .btn-remove:hover { color: var(--red); background: rgba(244,63,94,0.1); }
+
+    .btn-edit {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 2px 5px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: color 0.15s, background 0.15s;
+      flex-shrink: 0;
+    }
+    .btn-edit:hover { color: var(--accent); background: var(--accent-dim); }
+
+    .edit-sfx-row {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .edit-sfx-row.open { display: flex; }
+    .edit-sfx-row select,
+    .edit-sfx-row input[type="number"] {
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 8px;
+      outline: none;
+    }
+    .edit-sfx-row select { flex: 1; min-width: 140px; }
+    .edit-sfx-row input[type="number"] { width: 80px; }
+    .edit-sfx-row label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+    .btn-edit-confirm {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-edit-confirm:hover { background: #6b4de8; }
+    .btn-edit-confirm:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .add-sfx-panel {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .add-sfx-panel.open { display: flex; }
+    .add-sfx-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .add-sfx-panel select,
+    .add-sfx-panel input[type="number"] {
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 8px;
+      outline: none;
+    }
+    .add-sfx-panel select { flex: 1; min-width: 140px; }
+    .add-sfx-panel input[type="number"] { width: 80px; }
+    .add-sfx-panel label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+    .vol-display {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      min-width: 28px;
+    }
+    .btn-add-confirm {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-add-confirm:hover { background: #6b4de8; }
+    .btn-add-confirm:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .change-bgm-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .change-bgm-row select {
+      flex: 1;
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 8px;
+      outline: none;
+      min-width: 140px;
+    }
+    .btn-bgm-confirm {
+      background: var(--surface3);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-bgm-confirm:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn-bgm-confirm:disabled { opacity: 0.4; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header>
+    <div class="logo">SFX<span>Studio</span></div>
+    <div class="badge">video_effects</div>
+    <div class="status-bar">
+      <div class="status-dot" id="serverDot"></div>
+      <span id="serverStatus">connecting...</span>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- ── PANEL 1: Upload ── -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="step">STEP 01</div>
+        <h2>Upload Video</h2>
+      </div>
+      <div class="panel-body">
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" accept="video/*" />
+          <div class="icon">🎬</div>
+          <p><strong>Drop video here</strong><br />or click to browse</p>
+          <div class="formats">MP4 · WEBM · MOV · AVI · MKV</div>
+        </div>
+
+        <div class="progress-bar-wrap" id="progressWrap">
+          <div class="progress-label">
+            <span id="progressLabel">Uploading...</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        </div>
+
+        <div id="uploadStatus"></div>
+
+        <div class="video-preview" id="videoPreview">
+          <video id="previewVideo" controls></video>
+          <div class="video-meta">
+            <div>File: <span id="metaFileName">—</span></div>
+            <div>ID: <span id="metaVideoId">—</span></div>
+          </div>
+        </div>
+
+        <div class="divider" id="transcribeDivider" style="display:none"></div>
+
+        <div id="transcribeStatus" style="display:none"></div>
+
+        <button class="btn btn-primary" id="btnTranscribe" style="display:none" disabled>
+          <span>⏳</span> Transcribing...
+        </button>
+      </div>
+    </div>
+
+    <!-- ── PANEL 2: Transcript + SFX Decisions ── -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="step">STEP 02</div>
+        <h2>Transcript & SFX Analysis</h2>
+      </div>
+      <div class="panel-body">
+        <!-- Transcript -->
+        <div class="section-label">TRANSCRIPT</div>
+        <div id="transcriptStats" class="transcript-stats" style="display:none">
+          <div class="stat-chip">Words: <b id="statWords">—</b></div>
+          <div class="stat-chip">Duration: <b id="statDuration">—</b></div>
+        </div>
+
+        <div id="transcriptStatus">
+          <div class="empty-state">
+            <div class="empty-icon">📝</div>
+            <p>Upload a video to see its transcript here.</p>
+          </div>
+        </div>
+
+        <div id="transcriptArea" class="transcript-area" style="display:none"></div>
+
+        <div class="divider" id="sfxDivider" style="display:none"></div>
+
+        <!-- SFX Analysis -->
+        <div id="sfxSection" style="display:none">
+          <div class="section-label">SFX DECISIONS</div>
+
+          <!-- AI Video Analysis Card -->
+          <div id="videoAnalysisCard" style="display:none;margin-bottom:16px">
+            <div class="section-label">AI VIDEO ANALYSIS</div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px">
+              <div>
+                <span id="analysisToneBadge" style="font-family:var(--mono);font-size:10px;padding:3px 10px;border-radius:20px;border:1px solid var(--accent);color:var(--accent);background:var(--accent-dim)"></span>
+              </div>
+              <div>
+                <div class="section-label" style="margin-bottom:3px">PURPOSE</div>
+                <div id="analysisPurpose" style="font-size:12px;color:var(--text);line-height:1.5"></div>
+              </div>
+              <div>
+                <div class="section-label" style="margin-bottom:3px">EMOTIONAL ARC</div>
+                <div id="analysisArc" style="font-size:12px;color:var(--text-dim);line-height:1.5"></div>
+              </div>
+              <div style="background:var(--accent2-dim);border:1px solid rgba(0,229,160,0.2);border-radius:8px;padding:10px">
+                <div class="section-label" style="margin-bottom:3px;color:var(--accent2)">💡 POSTING TIP</div>
+                <div id="analysisPostingTip" style="font-size:12px;color:var(--accent2);line-height:1.5"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BGM Card -->
+          <div id="bgmCard" style="display:none;margin-bottom:16px">
+            <div class="section-label">BACKGROUND MUSIC</div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:var(--text)" id="bgmTrackName">—</div>
+                  <div style="font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:2px" id="bgmTrackMood">—</div>
+                </div>
+                <input type="checkbox" class="toggle-checkbox" id="enableBgmToggle" checked />
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.5" id="bgmReasoning"></div>
+              <div style="display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--text-muted)">
+                <span>Vol: <b id="bgmVolume" style="color:var(--text)"></b></span>
+                <span>Fade in: <b id="bgmFadeIn" style="color:var(--text)"></b></span>
+                <span>Fade out: <b id="bgmFadeOut" style="color:var(--text)"></b></span>
+                <span>Duck points: <b id="bgmDuckCount" style="color:var(--text)"></b></span>
+              </div>
+              <!-- Change BGM inline control -->
+              <div class="change-bgm-row" id="changeBgmRow" style="display:none">
+                <select id="bgmTrackSelect"></select>
+                <button class="btn-bgm-confirm" id="btnBgmConfirm">Change</button>
+              </div>
+              <button class="btn btn-secondary" style="margin-top:8px;font-size:11px;padding:6px 12px" onclick="toggleChangeBgm()">🎵 Change Track</button>
+            </div>
+          </div>
+
+          <div id="sfxSummary" class="sfx-summary-bar"></div>
+          <button class="btn btn-secondary" id="btnReanalyze" style="margin-top:0">
+            ↻ Re-analyze
+          </button>
+          <div style="margin-top:12px" id="sfxEventsList"></div>
+
+          <!-- Add SFX inline panel -->
+          <div class="add-sfx-panel" id="addSfxPanel">
+            <div class="section-label" style="margin-bottom:0">ADD SFX EVENT</div>
+            <div class="add-sfx-row">
+              <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+                <label>TYPE</label>
+                <select id="addSfxType"></select>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <label>TIMESTAMP (s)</label>
+                <input type="number" id="addSfxTimestamp" min="0" step="0.1" placeholder="e.g. 5.2" />
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <label>VOLUME — <span class="vol-display" id="addVolDisplay">65%</span></label>
+              <input type="range" id="addSfxVolume" min="40" max="90" value="65" style="accent-color:var(--accent)" oninput="document.getElementById('addVolDisplay').textContent=this.value+'%'" />
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn-add-confirm" id="btnAddSfxConfirm" onclick="submitAddSfx()">＋ Add Event</button>
+              <span id="addSfxError" style="font-family:var(--mono);font-size:10px;color:var(--red)"></span>
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="margin-top:8px" onclick="toggleAddSfx()">＋ Add SFX Event</button>
+
+          <div class="divider"></div>
+          <div class="section-label">RAW JSON</div>
+          <button class="btn btn-secondary" style="margin-top:0" onclick="toggleJson()">{ } Toggle JSON</button>
+          <div id="jsonViewer" class="json-viewer"></div>
+        </div>
+
+        <div id="sfxEmptyState">
+          <div class="empty-state" style="margin-top:16px">
+            <div class="empty-icon">🎵</div>
+            <p>SFX analysis will appear here after transcription.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PANEL 3: Export + Output ── -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="step">STEP 03</div>
+        <h2>Export Output</h2>
+      </div>
+      <div class="panel-body">
+        <div id="exportStatus">
+          <div class="empty-state">
+            <div class="empty-icon">🎞️</div>
+            <p>Complete transcription and SFX analysis to export your video with sound effects mixed in.</p>
+          </div>
+        </div>
+
+        <div id="exportControls" style="display:none">
+          <div class="section-label">EXPORT SETTINGS</div>
+          <div class="sfx-event" style="margin-bottom:8px">
+            <div style="flex:1">
+              <div class="evt-name">Mix Sound Effects</div>
+              <div class="evt-meta">Apply AI-suggested SFX to video audio</div>
+            </div>
+            <input type="checkbox" class="toggle-checkbox" id="enableSfxToggle" checked />
+          </div>
+          <div class="sfx-event" style="margin-bottom:12px">
+            <div style="flex:1">
+              <div class="evt-name">Add Background Music</div>
+              <div class="evt-meta">Mix AI-selected BGM track under the video</div>
+            </div>
+            <input type="checkbox" class="toggle-checkbox" id="enableBgmExportToggle" checked />
+          </div>
+
+          <div id="enabledEventsCount" class="stat-chip" style="display:inline-block;margin-bottom:12px"></div>
+
+          <button class="btn btn-success" id="btnExport">
+            ✦ Export with SFX
+          </button>
+        </div>
+
+        <div id="exportProgress" style="display:none">
+          <div class="status-msg info">
+            <span class="spin">⏳</span>
+            <span id="exportProgressMsg">Processing video...</span>
+          </div>
+          <div class="progress-bar" style="margin-top:8px">
+            <div class="progress-fill" id="exportProgressFill" style="width:30%;background:var(--accent2)"></div>
+          </div>
+        </div>
+
+        <div class="divider" id="outputDivider" style="display:none"></div>
+
+        <div id="outputSection" style="display:none">
+          <div class="section-label">OUTPUT VIDEO</div>
+          <div class="output-video-wrap" id="outputVideoWrap">
+            <video id="outputVideo" controls></video>
+          </div>
+          <div class="output-meta" id="outputMeta">
+            <div class="meta-row">Filename: <span id="outFilename">—</span></div>
+            <div class="meta-row">Size: <span id="outSize">—</span></div>
+            <div class="meta-row">SFX applied: <span id="outSfxCount">—</span></div>
+          </div>
+          <a id="downloadLink" class="btn btn-success" style="margin-top:12px;text-decoration:none">
+            ↓ Download Video
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── State ───────────────────────────────────────────────────────────────────
+const state = {
+  videoId: null,
+  filename: null,
+  transcript: null,
+  sfxData: null,
+  outputUrl: null,
+};
+
+// ─── Emoji lookup (mood indicator for SFX/BGM dropdowns) ─────────────────────
+const EMOJI_MAP = {
+  impact_soft: "👊",
+  pause_click: "⏸️",
+  question_ping: "❓",
+  tension_rise: "⚡",
+  transition_whoosh: "💨",
+  clock_tick: "⏰",
+  breath_exhale: "😮‍💨",
+  paper_slide: "📄",
+  success_chime: "🎉",
+  success_warm: "🙂",
+  subtle_pop: "🫧",
+  warm_chord: "🎸",
+  notification_ding: "🔔",
+  soft_error: "⚠️",
+  cha_ching: "💰",
+  idea_ding: "💡",
+  record_scratch: "😲",
+  keyboard_typing: "⌨️",
+  dream_sequence: "💭",
+  crowd_applause: "👏",
+  heartbeat: "💓",
+  finger_snap: "🫰",
+  glitch: "🌀",
+  level_up: "⬆️",
+  wind_chimes: "🎐",
+  corporate_upbeat: "💼",
+  jazzy_hiphop: "🎷",
+  cinematic_ambient: "🌆",
+  warm_feeling: "🫶",
+  ukulele_wave: "🌴",
+  ambient_game: "🎮",
+  groovy_confident: "🕺",
+  quirky_positive: "🤪",
+  epic_reveal: "🏆",
+  clean_intro: "✨",
+  corporate_logo: "🏢",
+};
+
+// ─── Server Health ────────────────────────────────────────────────────────────
+async function checkServer() {
+  try {
+    const r = await fetch("/health");
+    if (r.ok) {
+      document.getElementById("serverDot").classList.add("active");
+      document.getElementById("serverStatus").textContent = "server online";
+    }
+  } catch {
+    document.getElementById("serverStatus").textContent = "server offline";
+  }
+}
+checkServer();
+
+// ─── Drag & Drop ─────────────────────────────────────────────────────────────
+const dropZone = document.getElementById("dropZone");
+const fileInput = document.getElementById("fileInput");
+
+dropZone.addEventListener("dragover", (e) => { e.preventDefault(); dropZone.classList.add("drag-over"); });
+dropZone.addEventListener("dragleave", () => dropZone.classList.remove("drag-over"));
+dropZone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropZone.classList.remove("drag-over");
+  const file = e.dataTransfer.files[0];
+  if (file) handleFile(file);
+});
+fileInput.addEventListener("change", () => {
+  if (fileInput.files[0]) handleFile(fileInput.files[0]);
+});
+
+// ─── Upload Flow ─────────────────────────────────────────────────────────────
+async function handleFile(file) {
+  showMsg("uploadStatus", "info", `⏳ Uploading ${file.name}...`);
+  showEl("progressWrap");
+
+  const formData = new FormData();
+  formData.append("video", file);
+
+  try {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/upload");
+
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) {
+        const pct = Math.round((e.loaded / e.total) * 100);
+        setProgress(pct, "Uploading");
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        state.videoId = data.videoId;
+        state.filename = data.filename;
+
+        setProgress(100, "Upload complete");
+        showMsg("uploadStatus", "success", `✓ Uploaded: ${file.name}`);
+        hideEl("progressWrap");
+
+        // Show video preview
+        const url = URL.createObjectURL(file);
+        document.getElementById("previewVideo").src = url;
+        document.getElementById("metaFileName").textContent = file.name;
+        document.getElementById("metaVideoId").textContent = data.videoId;
+        showEl("videoPreview");
+        showEl("transcribeDivider");
+
+        // Start polling for transcript
+        showEl("transcribeStatus");
+        startTranscriptPolling();
+      } else {
+        const err = JSON.parse(xhr.responseText);
+        showMsg("uploadStatus", "error", `✗ Upload failed: ${err.error}`);
+        hideEl("progressWrap");
+      }
+    };
+
+    xhr.onerror = () => {
+      showMsg("uploadStatus", "error", "✗ Network error during upload");
+      hideEl("progressWrap");
+    };
+
+    xhr.send(formData);
+  } catch (err) {
+    showMsg("uploadStatus", "error", `✗ ${err.message}`);
+    hideEl("progressWrap");
+  }
+}
+
+// ─── Transcript Polling ───────────────────────────────────────────────────────
+let pollInterval = null;
+
+function startTranscriptPolling() {
+  showMsg("transcribeStatus", "info", "⏳ Transcribing audio... this may take a minute.");
+  showMsg("transcriptStatus", "info", '<span class="spin">⏳</span> Waiting for transcript...');
+
+  pollInterval = setInterval(async () => {
+    try {
+      const r = await fetch(`/api/transcript/${state.videoId}`);
+      const data = await r.json();
+
+      if (data.status === "ready") {
+        clearInterval(pollInterval);
+        state.transcript = data.transcript;
+        showMsg("transcribeStatus", "success", `✓ Transcript ready — ${data.transcript.words.length} words`);
+        renderTranscript(data.transcript);
+        runSfxAnalysis();
+      } else if (data.status === "error") {
+        clearInterval(pollInterval);
+        showMsg("transcribeStatus", "error", `✗ Transcription failed: ${data.message}`);
+        showMsg("transcriptStatus", "error", `✗ ${data.message}`);
+      } else {
+        showMsg("transcribeStatus", "info", `⏳ ${data.message || "Transcribing..."}`);
+      }
+    } catch (err) {
+      console.error("Poll error:", err);
+    }
+  }, 2500);
+}
+
+// ─── Render Transcript ────────────────────────────────────────────────────────
+function renderTranscript(transcript) {
+  hideEl("transcriptStatus");
+  showEl("transcriptArea");
+  showEl("transcriptStats");
+
+  document.getElementById("statWords").textContent = transcript.words.length;
+  document.getElementById("statDuration").textContent = transcript.clip_end
+    ? `${transcript.clip_end.toFixed(1)}s`
+    : "—";
+
+  // Will be re-rendered after SFX analysis with highlights
+  renderTranscriptWords(transcript.words, []);
+}
+
+function renderTranscriptWords(words, sfxEvents) {
+  const area = document.getElementById("transcriptArea");
+  const assets = state.sfxData?.assets || {};
+  area.innerHTML = words.map((w) => {
+    const match = sfxEvents.find(
+      (e) => Math.abs(e.timestamp - w.start) < 0.5 || (w.start <= e.timestamp && e.timestamp <= w.end)
+    );
+    const hasSfx = !!match;
+    const asset = hasSfx ? assets[match.sfx_type] : null;
+    const tag = hasSfx
+      ? `<span class="transcript-sfx-tag" style="color:${asset?.color || 'var(--accent)'}">[${asset?.label || match.sfx_type}]</span>`
+      : "";
+    return `<span class="transcript-word ${hasSfx ? "has-sfx" : ""}" title="${w.start.toFixed(2)}s">${w.word}</span>${tag} `;
+  }).join("");
+}
+
+// ─── SFX Analysis ─────────────────────────────────────────────────────────────
+async function runSfxAnalysis() {
+  hideEl("sfxEmptyState");
+  showMsg("transcriptStatus", "info", '<span class="spin">⏳</span> Analyzing for SFX...');
+
+  try {
+    const r = await fetch("/api/sfx-analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ videoId: state.videoId }),
+    });
+    const data = await r.json();
+
+    if (!r.ok) throw new Error(data.error);
+
+    state.sfxData = data;
+    document.getElementById("transcriptStatus").innerHTML = "";
+
+    // Highlight transcript words that have SFX
+    renderTranscriptWords(state.transcript.words, data.events);
+
+    renderSfxEvents(data);
+    showEl("sfxDivider");
+    showEl("sfxSection");
+    showEl("exportControls");
+    hideEl("exportStatus");
+    updateEnabledCount();
+    document.getElementById("exportStatus").innerHTML = "";
+  } catch (err) {
+    showMsg("transcriptStatus", "error", `✗ SFX analysis failed: ${err.message}`);
+  }
+}
+
+document.getElementById("btnReanalyze").onclick = () => runSfxAnalysis();
+
+function renderSfxEvents(data) {
+  // ── AI Video Analysis Card ──────────────────────────────────────────────────
+  if (data.video_analysis) {
+    const va = data.video_analysis;
+    document.getElementById("analysisToneBadge").textContent = (va.tone || "").toUpperCase();
+    document.getElementById("analysisPurpose").textContent = va.purpose || "";
+    document.getElementById("analysisArc").textContent = va.emotional_arc || "";
+    document.getElementById("analysisPostingTip").textContent = va.posting_tip || "";
+    document.getElementById("videoAnalysisCard").style.display = "block";
+  }
+
+  // ── BGM Card ──────────────────────────────────────────────────────────────────────────────
+  if (data.bgm) {
+    const bgm = data.bgm;
+    const asset = bgm.asset || {};
+    document.getElementById("bgmTrackName").textContent = asset.label || bgm.track_id;
+    document.getElementById("bgmTrackMood").textContent = asset.mood || "";
+    document.getElementById("bgmReasoning").textContent = bgm.reasoning || "";
+    document.getElementById("bgmVolume").textContent = Math.round((bgm.base_volume || 0.15) * 100) + "%";
+    document.getElementById("bgmFadeIn").textContent = (bgm.fade_in_duration || 2) + "s";
+    document.getElementById("bgmFadeOut").textContent = (bgm.fade_out_duration || 3) + "s";
+    document.getElementById("bgmDuckCount").textContent = (bgm.duck_points || []).length;
+    document.getElementById("bgmCard").style.display = "block";
+  }
+
+  // ── Summary chips ───────────────────────────────────────────────────────────
+  const summary = document.getElementById("sfxSummary");
+  summary.innerHTML = "";
+  for (const [type, count] of Object.entries(data.stats.byType)) {
+    const asset = data.assets[type];
+    const chip = document.createElement("div");
+    chip.className = "type-chip";
+    chip.style.borderColor = asset?.color || "#666";
+    chip.style.color = asset?.color || "#999";
+    chip.innerHTML = `<span style="width:7px;height:7px;border-radius:50%;background:${asset?.color || "#666"};display:inline-block"></span>${asset?.label || type}: ${count}`;
+    summary.appendChild(chip);
+  }
+
+  // ── Event list ──────────────────────────────────────────────────────────────
+  const list = document.getElementById("sfxEventsList");
+  list.innerHTML = "";
+
+  if (data.events.length === 0) {
+    list.innerHTML = '<div class="empty-state"><div class="empty-icon">🔇</div><p>No SFX events detected in this transcript.</p></div>';
+    return;
+  }
+
+  data.events.forEach((evt, i) => {
+    const asset = data.assets[evt.sfx_type];
+    const div = document.createElement("div");
+    div.className = "sfx-event";
+    div.dataset.index = i;
+    div.dataset.eventId = evt.id;
+    const reasoningLine = evt.reasoning
+      ? `<div class="evt-trigger">↳ ${evt.reasoning}</div>`
+      : evt.trigger
+        ? `<div class="evt-trigger">↳ ${evt.trigger}</div>`
+        : "";
+    const emotionTag = evt.emotional_tag
+      ? `<span style="font-family:var(--mono);font-size:9px;padding:2px 6px;border-radius:10px;background:var(--surface3);color:var(--text-dim);margin-left:4px">${evt.emotional_tag}</span>`
+      : "";
+    div.innerHTML = `
+      <div class="color-dot" style="background:${asset?.color || '#888'}"></div>
+      <div style="flex:1">
+        <div class="evt-name" style="display:flex;align-items:center">${asset?.label || evt.sfx_type}${emotionTag}</div>
+        <div class="evt-meta">@ ${evt.timestamp.toFixed(2)}s · vol ${(evt.volume * 100).toFixed(0)}% · confidence ${Math.round(evt.confidence * 100)}%</div>
+        ${reasoningLine}
+        <div class="confidence-bar" style="margin-top:6px">
+          <div class="confidence-fill" style="width:${Math.round(evt.confidence * 100)}%;background:${asset?.color || '#888'}"></div>
+        </div>
+        <div class="edit-sfx-row" id="edit-row-${evt.id}">
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+              <label>TYPE</label>
+              <select class="edit-sfx-type" data-event-id="${evt.id}">${Object.values(data.assets).map(a => `<option value="${a.id}"${a.id === evt.sfx_type ? ' selected' : ''}>${EMOJI_MAP[a.id] || ''} ${a.label}</option>`).join('')}</select>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <label>TIMESTAMP (s)</label>
+              <input type="number" class="edit-sfx-ts" data-event-id="${evt.id}" value="${evt.timestamp.toFixed(2)}" min="0" step="0.1" />
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <label>VOLUME — <span class="edit-vol-display" id="edit-vol-disp-${evt.id}">${Math.round(evt.volume * 100)}%</span></label>
+            <input type="range" class="edit-sfx-vol" data-event-id="${evt.id}" min="40" max="90" value="${Math.round(evt.volume * 100)}" style="accent-color:var(--accent)" oninput="document.getElementById('edit-vol-disp-${evt.id}').textContent=this.value+'%'" />
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn-edit-confirm" data-event-id="${evt.id}">✓ Save</button>
+            <span class="edit-sfx-error" style="font-family:var(--mono);font-size:10px;color:var(--red)"></span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+        <input type="checkbox" class="toggle-checkbox sfx-toggle-input" data-index="${i}" checked />
+        <button class="btn-edit" data-event-id="${evt.id}" title="Edit this SFX event">✎</button>
+        <button class="btn-remove" data-event-id="${evt.id}" title="Remove this SFX event">×</button>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+
+  // Toggle listeners
+  document.querySelectorAll(".sfx-toggle-input").forEach((cb) => {
+    cb.addEventListener("change", updateEnabledCount);
+  });
+
+  // Remove button listeners
+  document.querySelectorAll(".btn-remove").forEach((btn) => {
+    btn.addEventListener("click", () => removeSfxEvent(btn.dataset.eventId));
+  });
+
+  // Edit button listeners (toggle row)
+  document.querySelectorAll(".btn-edit").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const row = document.getElementById(`edit-row-${btn.dataset.eventId}`);
+      if (row) row.classList.toggle("open");
+    });
+  });
+
+  // Save (confirm edit) listeners
+  document.querySelectorAll(".btn-edit-confirm").forEach((btn) => {
+    btn.addEventListener("click", () => saveEditSfx(btn.dataset.eventId, btn));
+  });
+
+  // Populate Add SFX type select
+  const addSfxType = document.getElementById("addSfxType");
+  addSfxType.innerHTML = Object.values(data.assets)
+    .map((a) => `<option value="${a.id}">${EMOJI_MAP[a.id] || ''} ${a.label}</option>`)
+    .join("");
+
+  // Populate Change BGM select
+  const bgmSelect = document.getElementById("bgmTrackSelect");
+  bgmSelect.innerHTML = Object.values(data.bgm_assets)
+    .map((b) => `<option value="${b.id}" ${data.bgm?.track_id === b.id ? 'selected' : ''}>${EMOJI_MAP[b.id] || ''} ${b.label}</option>`)
+    .join("");
+
+  // JSON viewer
+  document.getElementById("jsonViewer").textContent = JSON.stringify(data, null, 2);
+}
+
+function updateEnabledCount() {
+  const total = document.querySelectorAll(".sfx-toggle-input").length;
+  const enabled = document.querySelectorAll(".sfx-toggle-input:checked").length;
+  document.getElementById("enabledEventsCount").textContent = `${enabled} of ${total} SFX events enabled`;
+}
+
+function toggleJson() {
+  const v = document.getElementById("jsonViewer");
+  v.style.display = v.style.display === "block" ? "none" : "block";
+}
+
+// ─── Edit SFX Event ─────────────────────────────────────────────────────────────────
+async function saveEditSfx(eventId, btn) {
+  if (!state.videoId) return;
+  const row = document.getElementById(`edit-row-${eventId}`);
+  const sfx_type = row.querySelector(".edit-sfx-type").value;
+  const timestamp = parseFloat(row.querySelector(".edit-sfx-ts").value);
+  const volume = parseInt(row.querySelector(".edit-sfx-vol").value) / 100;
+  const errEl = row.querySelector(".edit-sfx-error");
+  errEl.textContent = "";
+
+  if (isNaN(timestamp)) { errEl.textContent = "Invalid timestamp."; return; }
+
+  btn.disabled = true;
+  btn.textContent = "Saving...";
+
+  try {
+    const r = await fetch(`/api/sfx-event/${state.videoId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: eventId, sfx_type, timestamp, volume }),
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error);
+
+    // Update state
+    state.sfxData.events = data.events;
+    state.sfxData.stats = data.stats;
+
+    // Update the card in-place
+    const card = document.querySelector(`[data-event-id="${eventId}"]`)?.closest(".sfx-event");
+    if (card) {
+      const updEvt = data.updated;
+      const asset = state.sfxData.assets[updEvt.sfx_type];
+      card.querySelector(".color-dot").style.background = asset?.color || "#888";
+      card.querySelector(".evt-name").childNodes[0].textContent = asset?.label || updEvt.sfx_type;
+      card.querySelector(".evt-meta").textContent =
+        `@ ${updEvt.timestamp.toFixed(2)}s · vol ${(updEvt.volume * 100).toFixed(0)}% · confidence ${Math.round(updEvt.confidence * 100)}%`;
+      const fill = card.querySelector(".confidence-fill");
+      if (fill) fill.style.background = asset?.color || "#888";
+    }
+
+    updateSummaryChips(state.sfxData);
+    refreshTranscriptHighlights();
+    document.getElementById("jsonViewer").textContent = JSON.stringify(state.sfxData, null, 2);
+    row.classList.remove("open");
+  } catch (err) {
+    errEl.textContent = err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "✓ Save";
+  }
+}
+
+// ─── Remove SFX Event ────────────────────────────────────────────────────────────────
+async function removeSfxEvent(eventId) {
+  if (!state.videoId) return;
+  try {
+    const r = await fetch(`/api/sfx-event/${state.videoId}/${eventId}`, { method: "DELETE" });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error);
+
+    // Update state
+    state.sfxData.events = data.events;
+    state.sfxData.stats = data.stats;
+
+    // Remove card from DOM
+    const card = document.querySelector(`[data-event-id="${eventId}"]`);
+    if (card) card.remove();
+
+    // Re-index data-index attributes
+    document.querySelectorAll(".sfx-event").forEach((el, i) => {
+      el.dataset.index = i;
+      const cb = el.querySelector(".sfx-toggle-input");
+      if (cb) cb.dataset.index = i;
+    });
+
+    updateEnabledCount();
+    updateSummaryChips(state.sfxData);
+    refreshTranscriptHighlights();
+    document.getElementById("jsonViewer").textContent = JSON.stringify(state.sfxData, null, 2);
+  } catch (err) {
+    console.error("[remove SFX]", err.message);
+  }
+}
+
+// ─── Add SFX Event ───────────────────────────────────────────────────────────────────
+function toggleAddSfx() {
+  const panel = document.getElementById("addSfxPanel");
+  panel.classList.toggle("open");
+  if (panel.classList.contains("open")) {
+    document.getElementById("addSfxTimestamp").max = state.sfxData?.duration || 9999;
+    document.getElementById("addSfxError").textContent = "";
+  }
+}
+
+async function submitAddSfx() {
+  if (!state.videoId || !state.sfxData) return;
+  const sfx_type = document.getElementById("addSfxType").value;
+  const timestamp = parseFloat(document.getElementById("addSfxTimestamp").value);
+  const volume = parseInt(document.getElementById("addSfxVolume").value) / 100;
+  const errEl = document.getElementById("addSfxError");
+  errEl.textContent = "";
+
+  if (!sfx_type || isNaN(timestamp)) {
+    errEl.textContent = "Type and timestamp required.";
+    return;
+  }
+
+  const btn = document.getElementById("btnAddSfxConfirm");
+  btn.disabled = true;
+  btn.textContent = "Adding...";
+
+  try {
+    const r = await fetch(`/api/sfx-event/${state.videoId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sfx_type, timestamp, volume }),
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error);
+
+    // Update state
+    state.sfxData.events = data.events;
+    state.sfxData.stats = data.stats;
+
+    // Re-render event list and close panel
+    renderSfxEvents(state.sfxData);
+    document.getElementById("addSfxPanel").classList.remove("open");
+    document.getElementById("addSfxTimestamp").value = "";
+  } catch (err) {
+    errEl.textContent = err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "＋ Add Event";
+  }
+}
+
+// ─── Change BGM ───────────────────────────────────────────────────────────────────────
+function toggleChangeBgm() {
+  const row = document.getElementById("changeBgmRow");
+  row.style.display = row.style.display === "none" ? "flex" : "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("btnBgmConfirm").addEventListener("click", async () => {
+    if (!state.videoId) return;
+    const track_id = document.getElementById("bgmTrackSelect").value;
+    const btn = document.getElementById("btnBgmConfirm");
+    btn.disabled = true;
+    btn.textContent = "Changing...";
+    try {
+      const r = await fetch(`/api/sfx-bgm/${state.videoId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ track_id }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error);
+
+      // Update state
+      state.sfxData.bgm = data.bgm;
+
+      // Update BGM card UI
+      const asset = data.bgm.asset || {};
+      document.getElementById("bgmTrackName").textContent = asset.label || track_id;
+      document.getElementById("bgmTrackMood").textContent = asset.mood || "";
+      document.getElementById("bgmReasoning").textContent = data.bgm.reasoning || "";
+      document.getElementById("bgmVolume").textContent = Math.round((data.bgm.base_volume || 0.15) * 100) + "%";
+      document.getElementById("bgmFadeIn").textContent = (data.bgm.fade_in_duration || 2) + "s";
+      document.getElementById("bgmFadeOut").textContent = (data.bgm.fade_out_duration || 3) + "s";
+      document.getElementById("bgmDuckCount").textContent = (data.bgm.duck_points || []).length;
+      document.getElementById("jsonViewer").textContent = JSON.stringify(state.sfxData, null, 2);
+
+      // Close the change row
+      document.getElementById("changeBgmRow").style.display = "none";
+    } catch (err) {
+      console.error("[change BGM]", err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Change";
+    }
+  });
+});
+
+// ─── Shared UI helpers ───────────────────────────────────────────────────────────────
+function updateSummaryChips(data) {
+  const summary = document.getElementById("sfxSummary");
+  summary.innerHTML = "";
+  for (const [type, count] of Object.entries(data.stats.byType)) {
+    const asset = data.assets[type];
+    const chip = document.createElement("div");
+    chip.className = "type-chip";
+    chip.style.borderColor = asset?.color || "#666";
+    chip.style.color = asset?.color || "#999";
+    chip.innerHTML = `<span style="width:7px;height:7px;border-radius:50%;background:${asset?.color || '#666'};display:inline-block"></span>${asset?.label || type}: ${count}`;
+    summary.appendChild(chip);
+  }
+}
+
+function refreshTranscriptHighlights() {
+  if (!state.transcript || !state.sfxData) return;
+  renderTranscriptWords(state.transcript.words, state.sfxData.events);
+}
+
+// ─── Export ───────────────────────────────────────────────────────────────────
+document.getElementById("btnExport").onclick = async () => {
+  if (!state.videoId || !state.sfxData) return;
+
+  // Collect enabled events
+  const enabledIndices = [...document.querySelectorAll(".sfx-toggle-input:checked")]
+    .map((cb) => parseInt(cb.dataset.index));
+  const enabledEvents = state.sfxData.events.filter((_, i) => enabledIndices.includes(i));
+  const enableSfx = document.getElementById("enableSfxToggle").checked;
+  const enableBgm = document.getElementById("enableBgmExportToggle") ? document.getElementById("enableBgmExportToggle").checked : true;
+
+  hideEl("exportControls");
+  showEl("exportProgress");
+  showEl("outputDivider");
+
+  // Fake progress pulse while waiting
+  let fakePct = 10;
+  const fakeTimer = setInterval(() => {
+    fakePct = Math.min(fakePct + Math.random() * 8, 85);
+    document.getElementById("exportProgressFill").style.width = fakePct + "%";
+  }, 800);
+
+  try {
+    const r = await fetch("/api/export", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        videoId: state.videoId,
+        sfxEvents: enabledEvents,
+        enableSfx,
+        enableBgm,
+      }),
+    });
+    const data = await r.json();
+
+    clearInterval(fakeTimer);
+    document.getElementById("exportProgressFill").style.width = "100%";
+
+    if (!r.ok) throw new Error(data.error);
+
+    state.outputUrl = data.outputUrl;
+
+    setTimeout(() => {
+      hideEl("exportProgress");
+      showEl("exportControls");
+      showEl("outputSection");
+
+      document.getElementById("outputVideoWrap").style.display = "block";
+      document.getElementById("outputMeta").style.display = "block";
+      document.getElementById("outputVideo").src = data.outputUrl;
+      document.getElementById("outFilename").textContent = data.outputFilename;
+      document.getElementById("outSize").textContent = `${data.fileSizeMB} MB`;
+      document.getElementById("outSfxCount").textContent = `${data.sfxEventsApplied} SFX events${data.bgmTrack ? " + BGM: " + data.bgmTrack : ""}`;
+
+      const dl = document.getElementById("downloadLink");
+      dl.href = data.downloadUrl;
+      dl.download = data.outputFilename;
+    }, 400);
+  } catch (err) {
+    clearInterval(fakeTimer);
+    hideEl("exportProgress");
+    showEl("exportControls");
+    showMsg("exportStatus", "error", `✗ Export failed: ${err.message}`);
+  }
+};
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function showEl(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = "";
+}
+function hideEl(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = "none";
+}
+function showMsg(containerId, type, html) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = `<div class="status-msg ${type}">${html}</div>`;
+  el.style.display = "";
+}
+function setProgress(pct, label) {
+  document.getElementById("progressFill").style.width = pct + "%";
+  document.getElementById("progressPct").textContent = pct + "%";
+  document.getElementById("progressLabel").textContent = label;
+}
+</script>
+</body>
+</html>

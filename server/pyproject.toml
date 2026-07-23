@@ -1,0 +1,19 @@
+[tool.poetry]
+# Python side of the video_effects server. The Node server (index.js) shells
+# out to scripts/transcribe_fast.py, which needs faster-whisper. This declares
+# that dependency so the transcription interpreter is reproducible.
+name = "video-effects-transcription"
+version = "1.0.0"
+description = "Python transcription helper (faster-whisper) for the video_effects server"
+authors = ["Dkafka"]
+readme = "README.md"
+# Not an importable package — just a dependency environment for the scripts.
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+faster-whisper = "^1.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

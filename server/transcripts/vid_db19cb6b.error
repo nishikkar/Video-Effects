@@ -1,0 +1,5 @@
+Transcription failed (exit 1):
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\GitHub\Simi\video_effects\video_effects\server\scripts\transcribe_fast.py", line 1, in <module>
+    from faster_whisper import WhisperModel
+ModuleNotFoundError: No module named 'faster_whisper'

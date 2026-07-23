@@ -1,0 +1,1133 @@
+{
+  "video_id": "vid_bbe9512f",
+  "source_video": "vid_bbe9512f.mp4",
+  "clip_start": 0,
+  "clip_end": 106.58,
+  "words": [
+    {
+      "id": "w001",
+      "word": "Today",
+      "start": 0.18,
+      "end": 0.8
+    },
+    {
+      "id": "w002",
+      "word": "I",
+      "start": 0.8,
+      "end": 0.98
+    },
+    {
+      "id": "w003",
+      "word": "want",
+      "start": 0.98,
+      "end": 1.2
+    },
+    {
+      "id": "w004",
+      "word": "to",
+      "start": 1.2,
+      "end": 1.44
+    },
+    {
+      "id": "w005",
+      "word": "share",
+      "start": 1.44,
+      "end": 2.22
+    },
+    {
+      "id": "w006",
+      "word": "the",
+      "start": 2.22,
+      "end": 2.46
+    },
+    {
+      "id": "w007",
+      "word": "story",
+      "start": 2.46,
+      "end": 2.74
+    },
+    {
+      "id": "w008",
+      "word": "of",
+      "start": 2.74,
+      "end": 3.06
+    },
+    {
+      "id": "w009",
+      "word": "my",
+      "start": 3.06,
+      "end": 3.32
+    },
+    {
+      "id": "w010",
+      "word": "development",
+      "start": 3.32,
+      "end": 6.02
+    },
+    {
+      "id": "w011",
+      "word": "of",
+      "start": 6.02,
+      "end": 6.6
+    },
+    {
+      "id": "w012",
+      "word": "this",
+      "start": 6.6,
+      "end": 7.08
+    },
+    {
+      "id": "w013",
+      "word": "software",
+      "start": 7.08,
+      "end": 9.98
+    },
+    {
+      "id": "w014",
+      "word": "that",
+      "start": 9.98,
+      "end": 10.16
+    },
+    {
+      "id": "w015",
+      "word": "I",
+      "start": 10.16,
+      "end": 10.28
+    },
+    {
+      "id": "w016",
+      "word": "was",
+      "start": 10.28,
+      "end": 10.4
+    },
+    {
+      "id": "w017",
+      "word": "building.",
+      "start": 10.4,
+      "end": 10.74
+    },
+    {
+      "id": "w018",
+      "word": "So",
+      "start": 11.4,
+      "end": 11.62
+    },
+    {
+      "id": "w019",
+      "word": "basically",
+      "start": 11.62,
+      "end": 11.96
+    },
+    {
+      "id": "w020",
+      "word": "I",
+      "start": 11.96,
+      "end": 12.12
+    },
+    {
+      "id": "w021",
+      "word": "was",
+      "start": 12.12,
+      "end": 12.26
+    },
+    {
+      "id": "w022",
+      "word": "trying",
+      "start": 12.26,
+      "end": 12.5
+    },
+    {
+      "id": "w023",
+      "word": "to",
+      "start": 12.5,
+      "end": 12.68
+    },
+    {
+      "id": "w024",
+      "word": "build",
+      "start": 12.68,
+      "end": 13.16
+    },
+    {
+      "id": "w025",
+      "word": "an",
+      "start": 13.16,
+      "end": 17.2
+    },
+    {
+      "id": "w026",
+      "word": "AI",
+      "start": 17.2,
+      "end": 17.46
+    },
+    {
+      "id": "w027",
+      "word": "which",
+      "start": 17.46,
+      "end": 18
+    },
+    {
+      "id": "w028",
+      "word": "automatically",
+      "start": 18,
+      "end": 18.66
+    },
+    {
+      "id": "w029",
+      "word": "edits",
+      "start": 18.66,
+      "end": 19.78
+    },
+    {
+      "id": "w030",
+      "word": "and",
+      "start": 19.78,
+      "end": 20.48
+    },
+    {
+      "id": "w031",
+      "word": "puts",
+      "start": 20.48,
+      "end": 20.74
+    },
+    {
+      "id": "w032",
+      "word": "sound",
+      "start": 20.74,
+      "end": 21.44
+    },
+    {
+      "id": "w033",
+      "word": "effects",
+      "start": 21.44,
+      "end": 21.86
+    },
+    {
+      "id": "w034",
+      "word": "in",
+      "start": 23.8,
+      "end": 24.14
+    },
+    {
+      "id": "w035",
+      "word": "videos.",
+      "start": 24.14,
+      "end": 24.8
+    },
+    {
+      "id": "w036",
+      "word": "So",
+      "start": 27.28,
+      "end": 28.04
+    },
+    {
+      "id": "w037",
+      "word": "the",
+      "start": 28.04,
+      "end": 28.8
+    },
+    {
+      "id": "w038",
+      "word": "problem",
+      "start": 28.8,
+      "end": 29.2
+    },
+    {
+      "id": "w039",
+      "word": "I",
+      "start": 29.2,
+      "end": 29.36
+    },
+    {
+      "id": "w040",
+      "word": "was",
+      "start": 29.36,
+      "end": 29.52
+    },
+    {
+      "id": "w041",
+      "word": "facing",
+      "start": 29.52,
+      "end": 29.86
+    },
+    {
+      "id": "w042",
+      "word": "initially",
+      "start": 29.86,
+      "end": 30.34
+    },
+    {
+      "id": "w043",
+      "word": "was",
+      "start": 30.34,
+      "end": 30.78
+    },
+    {
+      "id": "w044",
+      "word": "that",
+      "start": 30.78,
+      "end": 31.3
+    },
+    {
+      "id": "w045",
+      "word": "I",
+      "start": 31.3,
+      "end": 31.8
+    },
+    {
+      "id": "w046",
+      "word": "was",
+      "start": 31.8,
+      "end": 32.16
+    },
+    {
+      "id": "w047",
+      "word": "not",
+      "start": 32.16,
+      "end": 32.46
+    },
+    {
+      "id": "w048",
+      "word": "able",
+      "start": 32.46,
+      "end": 33.66
+    },
+    {
+      "id": "w049",
+      "word": "to",
+      "start": 33.66,
+      "end": 33.9
+    },
+    {
+      "id": "w050",
+      "word": "handle",
+      "start": 33.9,
+      "end": 34.28
+    },
+    {
+      "id": "w051",
+      "word": "the",
+      "start": 34.28,
+      "end": 34.66
+    },
+    {
+      "id": "w052",
+      "word": "code",
+      "start": 34.66,
+      "end": 34.92
+    },
+    {
+      "id": "w053",
+      "word": "base",
+      "start": 34.92,
+      "end": 35.3
+    },
+    {
+      "id": "w054",
+      "word": "as",
+      "start": 36.44,
+      "end": 36.82
+    },
+    {
+      "id": "w055",
+      "word": "such.",
+      "start": 36.82,
+      "end": 37.32
+    },
+    {
+      "id": "w056",
+      "word": "I",
+      "start": 37.5,
+      "end": 37.66
+    },
+    {
+      "id": "w057",
+      "word": "was",
+      "start": 37.66,
+      "end": 37.82
+    },
+    {
+      "id": "w058",
+      "word": "having",
+      "start": 37.82,
+      "end": 38.24
+    },
+    {
+      "id": "w059",
+      "word": "a",
+      "start": 38.24,
+      "end": 38.42
+    },
+    {
+      "id": "w060",
+      "word": "lot",
+      "start": 38.42,
+      "end": 38.54
+    },
+    {
+      "id": "w061",
+      "word": "of",
+      "start": 38.54,
+      "end": 38.7
+    },
+    {
+      "id": "w062",
+      "word": "difficulty",
+      "start": 38.7,
+      "end": 39.22
+    },
+    {
+      "id": "w063",
+      "word": "in",
+      "start": 39.22,
+      "end": 39.48
+    },
+    {
+      "id": "w064",
+      "word": "handling",
+      "start": 39.48,
+      "end": 40.24
+    },
+    {
+      "id": "w065",
+      "word": "the",
+      "start": 40.24,
+      "end": 40.8
+    },
+    {
+      "id": "w066",
+      "word": "code",
+      "start": 40.8,
+      "end": 41.04
+    },
+    {
+      "id": "w067",
+      "word": "base.",
+      "start": 41.04,
+      "end": 41.46
+    },
+    {
+      "id": "w068",
+      "word": "So",
+      "start": 42.6,
+      "end": 42.9
+    },
+    {
+      "id": "w069",
+      "word": "I",
+      "start": 42.9,
+      "end": 42.98
+    },
+    {
+      "id": "w070",
+      "word": "was",
+      "start": 42.98,
+      "end": 43.26
+    },
+    {
+      "id": "w071",
+      "word": "using",
+      "start": 43.26,
+      "end": 43.86
+    },
+    {
+      "id": "w072",
+      "word": "a",
+      "start": 43.86,
+      "end": 44.12
+    },
+    {
+      "id": "w073",
+      "word": "lot",
+      "start": 44.12,
+      "end": 44.26
+    },
+    {
+      "id": "w074",
+      "word": "of",
+      "start": 44.26,
+      "end": 44.44
+    },
+    {
+      "id": "w075",
+      "word": "online",
+      "start": 44.44,
+      "end": 44.66
+    },
+    {
+      "id": "w076",
+      "word": "editors",
+      "start": 44.66,
+      "end": 45.12
+    },
+    {
+      "id": "w077",
+      "word": "but",
+      "start": 45.12,
+      "end": 46.56
+    },
+    {
+      "id": "w078",
+      "word": "since",
+      "start": 46.56,
+      "end": 47.04
+    },
+    {
+      "id": "w079",
+      "word": "I",
+      "start": 47.04,
+      "end": 47.44
+    },
+    {
+      "id": "w080",
+      "word": "don't",
+      "start": 47.44,
+      "end": 47.92
+    },
+    {
+      "id": "w081",
+      "word": "really",
+      "start": 47.92,
+      "end": 48.62
+    },
+    {
+      "id": "w082",
+      "word": "have",
+      "start": 48.62,
+      "end": 49.6
+    },
+    {
+      "id": "w083",
+      "word": "a",
+      "start": 49.6,
+      "end": 49.74
+    },
+    {
+      "id": "w084",
+      "word": "lot",
+      "start": 49.74,
+      "end": 49.88
+    },
+    {
+      "id": "w085",
+      "word": "of",
+      "start": 49.88,
+      "end": 50.22
+    },
+    {
+      "id": "w086",
+      "word": "code",
+      "start": 50.22,
+      "end": 50.32
+    },
+    {
+      "id": "w087",
+      "word": "and",
+      "start": 50.32,
+      "end": 50.82
+    },
+    {
+      "id": "w088",
+      "word": "I",
+      "start": 50.82,
+      "end": 51.02
+    },
+    {
+      "id": "w089",
+      "word": "like",
+      "start": 51.02,
+      "end": 51.94
+    },
+    {
+      "id": "w090",
+      "word": "exceeded",
+      "start": 51.94,
+      "end": 53.44
+    },
+    {
+      "id": "w091",
+      "word": "the",
+      "start": 53.44,
+      "end": 53.74
+    },
+    {
+      "id": "w092",
+      "word": "limit",
+      "start": 53.74,
+      "end": 53.94
+    },
+    {
+      "id": "w093",
+      "word": "of",
+      "start": 53.94,
+      "end": 54.22
+    },
+    {
+      "id": "w094",
+      "word": "code",
+      "start": 54.22,
+      "end": 54.46
+    },
+    {
+      "id": "w095",
+      "word": "X.",
+      "start": 54.46,
+      "end": 54.76
+    },
+    {
+      "id": "w096",
+      "word": "I",
+      "start": 55.58,
+      "end": 55.58
+    },
+    {
+      "id": "w097",
+      "word": "had",
+      "start": 55.58,
+      "end": 55.76
+    },
+    {
+      "id": "w098",
+      "word": "to",
+      "start": 55.76,
+      "end": 56.06
+    },
+    {
+      "id": "w099",
+      "word": "like",
+      "start": 56.06,
+      "end": 57.18
+    },
+    {
+      "id": "w100",
+      "word": "rely",
+      "start": 57.18,
+      "end": 57.5
+    },
+    {
+      "id": "w101",
+      "word": "on",
+      "start": 57.5,
+      "end": 57.78
+    },
+    {
+      "id": "w102",
+      "word": "GitHub",
+      "start": 57.78,
+      "end": 58
+    },
+    {
+      "id": "w103",
+      "word": "Copilot",
+      "start": 58,
+      "end": 58.58
+    },
+    {
+      "id": "w104",
+      "word": "and",
+      "start": 58.58,
+      "end": 59.74
+    },
+    {
+      "id": "w105",
+      "word": "honestly",
+      "start": 59.74,
+      "end": 60.42
+    },
+    {
+      "id": "w106",
+      "word": "I",
+      "start": 60.42,
+      "end": 60.56
+    },
+    {
+      "id": "w107",
+      "word": "had",
+      "start": 60.56,
+      "end": 60.72
+    },
+    {
+      "id": "w108",
+      "word": "a",
+      "start": 60.72,
+      "end": 60.84
+    },
+    {
+      "id": "w109",
+      "word": "lot",
+      "start": 60.84,
+      "end": 60.96
+    },
+    {
+      "id": "w110",
+      "word": "of",
+      "start": 60.96,
+      "end": 61.1
+    },
+    {
+      "id": "w111",
+      "word": "difficulty",
+      "start": 61.1,
+      "end": 61.46
+    },
+    {
+      "id": "w112",
+      "word": "in",
+      "start": 61.46,
+      "end": 61.78
+    },
+    {
+      "id": "w113",
+      "word": "dealing",
+      "start": 61.78,
+      "end": 61.94
+    },
+    {
+      "id": "w114",
+      "word": "with",
+      "start": 61.94,
+      "end": 62.2
+    },
+    {
+      "id": "w115",
+      "word": "it",
+      "start": 62.2,
+      "end": 62.3
+    },
+    {
+      "id": "w116",
+      "word": "because",
+      "start": 62.3,
+      "end": 62.58
+    },
+    {
+      "id": "w117",
+      "word": "I",
+      "start": 62.58,
+      "end": 63.84
+    },
+    {
+      "id": "w118",
+      "word": "think",
+      "start": 63.84,
+      "end": 64.2
+    },
+    {
+      "id": "w119",
+      "word": "GitHub",
+      "start": 64.2,
+      "end": 65.4
+    },
+    {
+      "id": "w120",
+      "word": "Copilot",
+      "start": 65.4,
+      "end": 66.08
+    },
+    {
+      "id": "w121",
+      "word": "isn't",
+      "start": 66.08,
+      "end": 67.08
+    },
+    {
+      "id": "w122",
+      "word": "that",
+      "start": 67.08,
+      "end": 67.24
+    },
+    {
+      "id": "w123",
+      "word": "strong",
+      "start": 67.24,
+      "end": 67.62
+    },
+    {
+      "id": "w124",
+      "word": "and",
+      "start": 67.62,
+      "end": 67.86
+    },
+    {
+      "id": "w125",
+      "word": "it",
+      "start": 67.86,
+      "end": 68.28
+    },
+    {
+      "id": "w126",
+      "word": "makes",
+      "start": 68.28,
+      "end": 68.48
+    },
+    {
+      "id": "w127",
+      "word": "a",
+      "start": 68.48,
+      "end": 68.7
+    },
+    {
+      "id": "w128",
+      "word": "lot",
+      "start": 68.7,
+      "end": 68.84
+    },
+    {
+      "id": "w129",
+      "word": "of",
+      "start": 68.84,
+      "end": 69
+    },
+    {
+      "id": "w130",
+      "word": "mistakes",
+      "start": 69,
+      "end": 69.36
+    },
+    {
+      "id": "w131",
+      "word": "and",
+      "start": 69.36,
+      "end": 69.66
+    },
+    {
+      "id": "w132",
+      "word": "it",
+      "start": 69.66,
+      "end": 70.12
+    },
+    {
+      "id": "w133",
+      "word": "has",
+      "start": 70.12,
+      "end": 71.54
+    },
+    {
+      "id": "w134",
+      "word": "a",
+      "start": 71.54,
+      "end": 71.68
+    },
+    {
+      "id": "w135",
+      "word": "lot",
+      "start": 71.68,
+      "end": 71.78
+    },
+    {
+      "id": "w136",
+      "word": "of",
+      "start": 71.78,
+      "end": 71.92
+    },
+    {
+      "id": "w137",
+      "word": "difficulty",
+      "start": 71.92,
+      "end": 72.48
+    },
+    {
+      "id": "w138",
+      "word": "in",
+      "start": 72.48,
+      "end": 72.86
+    },
+    {
+      "id": "w139",
+      "word": "handling",
+      "start": 72.86,
+      "end": 75.76
+    },
+    {
+      "id": "w140",
+      "word": "basic",
+      "start": 75.76,
+      "end": 77.62
+    },
+    {
+      "id": "w141",
+      "word": "decision",
+      "start": 77.62,
+      "end": 80.1
+    },
+    {
+      "id": "w142",
+      "word": "making.",
+      "start": 80.1,
+      "end": 80.84
+    },
+    {
+      "id": "w143",
+      "word": "So",
+      "start": 81.88,
+      "end": 82.22
+    },
+    {
+      "id": "w144",
+      "word": "I",
+      "start": 82.22,
+      "end": 82.68
+    },
+    {
+      "id": "w145",
+      "word": "decided",
+      "start": 82.68,
+      "end": 82.94
+    },
+    {
+      "id": "w146",
+      "word": "to",
+      "start": 82.94,
+      "end": 83.56
+    },
+    {
+      "id": "w147",
+      "word": "isolate",
+      "start": 83.56,
+      "end": 85.08
+    },
+    {
+      "id": "w148",
+      "word": "my",
+      "start": 85.08,
+      "end": 86.24
+    },
+    {
+      "id": "w149",
+      "word": "project",
+      "start": 86.24,
+      "end": 86.6
+    },
+    {
+      "id": "w150",
+      "word": "altogether",
+      "start": 86.6,
+      "end": 87.42
+    },
+    {
+      "id": "w151",
+      "word": "and",
+      "start": 87.42,
+      "end": 87.92
+    },
+    {
+      "id": "w152",
+      "word": "then",
+      "start": 87.92,
+      "end": 88.16
+    },
+    {
+      "id": "w153",
+      "word": "shift",
+      "start": 88.16,
+      "end": 89.18
+    },
+    {
+      "id": "w154",
+      "word": "to",
+      "start": 89.18,
+      "end": 89.46
+    },
+    {
+      "id": "w155",
+      "word": "a",
+      "start": 89.46,
+      "end": 89.54
+    },
+    {
+      "id": "w156",
+      "word": "completely",
+      "start": 89.54,
+      "end": 89.9
+    },
+    {
+      "id": "w157",
+      "word": "different",
+      "start": 89.9,
+      "end": 90.26
+    },
+    {
+      "id": "w158",
+      "word": "directory",
+      "start": 90.26,
+      "end": 90.88
+    },
+    {
+      "id": "w159",
+      "word": "and",
+      "start": 90.88,
+      "end": 91.92
+    },
+    {
+      "id": "w160",
+      "word": "test",
+      "start": 91.92,
+      "end": 92.48
+    },
+    {
+      "id": "w161",
+      "word": "my",
+      "start": 92.48,
+      "end": 93.68
+    },
+    {
+      "id": "w162",
+      "word": "the",
+      "start": 93.68,
+      "end": 95.4
+    },
+    {
+      "id": "w163",
+      "word": "features",
+      "start": 95.4,
+      "end": 95.68
+    },
+    {
+      "id": "w164",
+      "word": "I",
+      "start": 95.68,
+      "end": 95.86
+    },
+    {
+      "id": "w165",
+      "word": "was",
+      "start": 95.86,
+      "end": 96.02
+    },
+    {
+      "id": "w166",
+      "word": "adding",
+      "start": 96.02,
+      "end": 96.28
+    },
+    {
+      "id": "w167",
+      "word": "in",
+      "start": 96.28,
+      "end": 96.7
+    },
+    {
+      "id": "w168",
+      "word": "isolation.",
+      "start": 96.7,
+      "end": 97.02
+    },
+    {
+      "id": "w169",
+      "word": "So",
+      "start": 98.08,
+      "end": 98.2
+    },
+    {
+      "id": "w170",
+      "word": "that",
+      "start": 98.2,
+      "end": 98.32
+    },
+    {
+      "id": "w171",
+      "word": "has",
+      "start": 98.32,
+      "end": 98.52
+    },
+    {
+      "id": "w172",
+      "word": "worked",
+      "start": 98.52,
+      "end": 98.78
+    },
+    {
+      "id": "w173",
+      "word": "much",
+      "start": 98.78,
+      "end": 100.38
+    },
+    {
+      "id": "w174",
+      "word": "better",
+      "start": 100.38,
+      "end": 101.24
+    },
+    {
+      "id": "w175",
+      "word": "for",
+      "start": 101.24,
+      "end": 101.44
+    },
+    {
+      "id": "w176",
+      "word": "me",
+      "start": 101.44,
+      "end": 101.76
+    },
+    {
+      "id": "w177",
+      "word": "because",
+      "start": 101.76,
+      "end": 102.8
+    },
+    {
+      "id": "w178",
+      "word": "I",
+      "start": 102.8,
+      "end": 102.88
+    },
+    {
+      "id": "w179",
+      "word": "am",
+      "start": 102.88,
+      "end": 102.96
+    },
+    {
+      "id": "w180",
+      "word": "trying",
+      "start": 102.96,
+      "end": 103.22
+    },
+    {
+      "id": "w181",
+      "word": "right",
+      "start": 103.22,
+      "end": 103.76
+    },
+    {
+      "id": "w182",
+      "word": "now.",
+      "start": 103.76,
+      "end": 104
+    },
+    {
+      "id": "w183",
+      "word": "So",
+      "start": 105.64,
+      "end": 105.76
+    },
+    {
+      "id": "w184",
+      "word": "let's",
+      "start": 105.76,
+      "end": 105.98
+    },
+    {
+      "id": "w185",
+      "word": "see",
+      "start": 105.98,
+      "end": 106.12
+    },
+    {
+      "id": "w186",
+      "word": "what",
+      "start": 106.12,
+      "end": 106.32
+    },
+    {
+      "id": "w187",
+      "word": "happens.",
+      "start": 106.32,
+      "end": 106.58
+    }
+  ],
+  "protected_ranges": [],
+  "question_timestamps": [],
+  "thinking_ranges": []
+}

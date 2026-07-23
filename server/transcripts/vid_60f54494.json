@@ -1,0 +1,755 @@
+{
+  "video_id": "vid_60f54494",
+  "source_video": "vid_60f54494.mp4",
+  "clip_start": 0,
+  "clip_end": 52.68,
+  "words": [
+    {
+      "id": "w001",
+      "word": "Welcome",
+      "start": 0,
+      "end": 0.6
+    },
+    {
+      "id": "w002",
+      "word": "back",
+      "start": 0.6,
+      "end": 1.34
+    },
+    {
+      "id": "w003",
+      "word": "to",
+      "start": 1.34,
+      "end": 1.92
+    },
+    {
+      "id": "w004",
+      "word": "another",
+      "start": 1.92,
+      "end": 2.48
+    },
+    {
+      "id": "w005",
+      "word": "video.",
+      "start": 2.48,
+      "end": 3.08
+    },
+    {
+      "id": "w006",
+      "word": "So",
+      "start": 3.84,
+      "end": 3.92
+    },
+    {
+      "id": "w007",
+      "word": "today",
+      "start": 3.92,
+      "end": 4.24
+    },
+    {
+      "id": "w008",
+      "word": "we",
+      "start": 4.24,
+      "end": 4.72
+    },
+    {
+      "id": "w009",
+      "word": "are",
+      "start": 4.72,
+      "end": 4.8
+    },
+    {
+      "id": "w010",
+      "word": "going",
+      "start": 4.8,
+      "end": 5.08
+    },
+    {
+      "id": "w011",
+      "word": "to",
+      "start": 5.08,
+      "end": 5.3
+    },
+    {
+      "id": "w012",
+      "word": "talk",
+      "start": 5.3,
+      "end": 5.62
+    },
+    {
+      "id": "w013",
+      "word": "about",
+      "start": 5.62,
+      "end": 6.12
+    },
+    {
+      "id": "w014",
+      "word": "CBSCE,",
+      "start": 6.12,
+      "end": 7.64
+    },
+    {
+      "id": "w015",
+      "word": "Central",
+      "start": 8.2,
+      "end": 8.72
+    },
+    {
+      "id": "w016",
+      "word": "Board",
+      "start": 8.72,
+      "end": 9.1
+    },
+    {
+      "id": "w017",
+      "word": "of",
+      "start": 9.1,
+      "end": 9.54
+    },
+    {
+      "id": "w018",
+      "word": "Secondary",
+      "start": 9.54,
+      "end": 10.18
+    },
+    {
+      "id": "w019",
+      "word": "Education.",
+      "start": 10.18,
+      "end": 10.96
+    },
+    {
+      "id": "w020",
+      "word": "This",
+      "start": 12.09,
+      "end": 12.42
+    },
+    {
+      "id": "w021",
+      "word": "is",
+      "start": 12.42,
+      "end": 12.54
+    },
+    {
+      "id": "w022",
+      "word": "only",
+      "start": 12.54,
+      "end": 13.06
+    },
+    {
+      "id": "w023",
+      "word": "a",
+      "start": 13.06,
+      "end": 13.34
+    },
+    {
+      "id": "w024",
+      "word": "board",
+      "start": 13.34,
+      "end": 13.56
+    },
+    {
+      "id": "w025",
+      "word": "where",
+      "start": 13.56,
+      "end": 14.14
+    },
+    {
+      "id": "w026",
+      "word": "the",
+      "start": 14.14,
+      "end": 14.3
+    },
+    {
+      "id": "w027",
+      "word": "teachers",
+      "start": 14.3,
+      "end": 14.78
+    },
+    {
+      "id": "w028",
+      "word": "and",
+      "start": 14.78,
+      "end": 15.1
+    },
+    {
+      "id": "w029",
+      "word": "the",
+      "start": 15.1,
+      "end": 15.24
+    },
+    {
+      "id": "w030",
+      "word": "officials",
+      "start": 15.24,
+      "end": 15.56
+    },
+    {
+      "id": "w031",
+      "word": "fucked",
+      "start": 15.56,
+      "end": 16.06
+    },
+    {
+      "id": "w032",
+      "word": "up",
+      "start": 16.06,
+      "end": 16.38
+    },
+    {
+      "id": "w033",
+      "word": "more",
+      "start": 16.38,
+      "end": 16.68
+    },
+    {
+      "id": "w034",
+      "word": "than",
+      "start": 16.68,
+      "end": 16.88
+    },
+    {
+      "id": "w035",
+      "word": "the",
+      "start": 16.88,
+      "end": 17.12
+    },
+    {
+      "id": "w036",
+      "word": "students",
+      "start": 17.12,
+      "end": 17.4
+    },
+    {
+      "id": "w037",
+      "word": "ever",
+      "start": 17.4,
+      "end": 17.76
+    },
+    {
+      "id": "w038",
+      "word": "did.",
+      "start": 17.76,
+      "end": 17.94
+    },
+    {
+      "id": "w039",
+      "word": "Well,",
+      "start": 18.5,
+      "end": 18.66
+    },
+    {
+      "id": "w040",
+      "word": "if",
+      "start": 19.06,
+      "end": 19.24
+    },
+    {
+      "id": "w041",
+      "word": "you",
+      "start": 19.24,
+      "end": 19.32
+    },
+    {
+      "id": "w042",
+      "word": "go",
+      "start": 19.32,
+      "end": 19.52
+    },
+    {
+      "id": "w043",
+      "word": "through",
+      "start": 19.52,
+      "end": 19.78
+    },
+    {
+      "id": "w044",
+      "word": "their",
+      "start": 19.78,
+      "end": 19.98
+    },
+    {
+      "id": "w045",
+      "word": "website,",
+      "start": 19.98,
+      "end": 20.44
+    },
+    {
+      "id": "w046",
+      "word": "you",
+      "start": 20.44,
+      "end": 20.84
+    },
+    {
+      "id": "w047",
+      "word": "will",
+      "start": 20.84,
+      "end": 20.98
+    },
+    {
+      "id": "w048",
+      "word": "always",
+      "start": 20.98,
+      "end": 21.28
+    },
+    {
+      "id": "w049",
+      "word": "find",
+      "start": 21.28,
+      "end": 21.8
+    },
+    {
+      "id": "w050",
+      "word": "a",
+      "start": 21.8,
+      "end": 22.08
+    },
+    {
+      "id": "w051",
+      "word": "few",
+      "start": 22.08,
+      "end": 22.22
+    },
+    {
+      "id": "w052",
+      "word": "lines",
+      "start": 22.22,
+      "end": 22.48
+    },
+    {
+      "id": "w053",
+      "word": "and",
+      "start": 22.48,
+      "end": 22.78
+    },
+    {
+      "id": "w054",
+      "word": "paragraphs",
+      "start": 22.78,
+      "end": 23.06
+    },
+    {
+      "id": "w055",
+      "word": "written",
+      "start": 23.06,
+      "end": 23.6
+    },
+    {
+      "id": "w056",
+      "word": "by",
+      "start": 23.6,
+      "end": 23.82
+    },
+    {
+      "id": "w057",
+      "word": "CBSCE",
+      "start": 23.82,
+      "end": 24.66
+    },
+    {
+      "id": "w058",
+      "word": "about",
+      "start": 24.66,
+      "end": 25.3
+    },
+    {
+      "id": "w059",
+      "word": "how",
+      "start": 25.3,
+      "end": 25.56
+    },
+    {
+      "id": "w060",
+      "word": "much",
+      "start": 25.56,
+      "end": 25.92
+    },
+    {
+      "id": "w061",
+      "word": "they",
+      "start": 25.92,
+      "end": 26.1
+    },
+    {
+      "id": "w062",
+      "word": "care",
+      "start": 26.1,
+      "end": 26.4
+    },
+    {
+      "id": "w063",
+      "word": "about",
+      "start": 26.4,
+      "end": 26.74
+    },
+    {
+      "id": "w064",
+      "word": "their",
+      "start": 26.74,
+      "end": 27.12
+    },
+    {
+      "id": "w065",
+      "word": "fellow",
+      "start": 27.12,
+      "end": 27.6
+    },
+    {
+      "id": "w066",
+      "word": "students.",
+      "start": 27.6,
+      "end": 28.04
+    },
+    {
+      "id": "w067",
+      "word": "I",
+      "start": 28.04,
+      "end": 28.94
+    },
+    {
+      "id": "w068",
+      "word": "just",
+      "start": 28.94,
+      "end": 29.08
+    },
+    {
+      "id": "w069",
+      "word": "want",
+      "start": 29.08,
+      "end": 29.28
+    },
+    {
+      "id": "w070",
+      "word": "to",
+      "start": 29.28,
+      "end": 29.42
+    },
+    {
+      "id": "w071",
+      "word": "say,",
+      "start": 29.42,
+      "end": 29.7
+    },
+    {
+      "id": "w072",
+      "word": "CBSCE",
+      "start": 30.2,
+      "end": 30.78
+    },
+    {
+      "id": "w073",
+      "word": "cared",
+      "start": 30.78,
+      "end": 31.08
+    },
+    {
+      "id": "w074",
+      "word": "as",
+      "start": 31.08,
+      "end": 31.28
+    },
+    {
+      "id": "w075",
+      "word": "much",
+      "start": 31.28,
+      "end": 31.64
+    },
+    {
+      "id": "w076",
+      "word": "as",
+      "start": 31.64,
+      "end": 31.88
+    },
+    {
+      "id": "w077",
+      "word": "about",
+      "start": 31.88,
+      "end": 32.24
+    },
+    {
+      "id": "w078",
+      "word": "us,",
+      "start": 32.24,
+      "end": 32.64
+    },
+    {
+      "id": "w079",
+      "word": "just",
+      "start": 33.28,
+      "end": 33.38
+    },
+    {
+      "id": "w080",
+      "word": "like",
+      "start": 33.38,
+      "end": 33.64
+    },
+    {
+      "id": "w081",
+      "word": "our",
+      "start": 33.64,
+      "end": 33.86
+    },
+    {
+      "id": "w082",
+      "word": "ex",
+      "start": 33.86,
+      "end": 34.14
+    },
+    {
+      "id": "w083",
+      "word": "-cared",
+      "start": 34.14,
+      "end": 34.4
+    },
+    {
+      "id": "w084",
+      "word": "hours.",
+      "start": 34.4,
+      "end": 34.72
+    },
+    {
+      "id": "w085",
+      "word": "Well,",
+      "start": 35.88,
+      "end": 36.18
+    },
+    {
+      "id": "w086",
+      "word": "the",
+      "start": 36.44,
+      "end": 36.54
+    },
+    {
+      "id": "w087",
+      "word": "teachers",
+      "start": 36.54,
+      "end": 37.04
+    },
+    {
+      "id": "w088",
+      "word": "and",
+      "start": 37.04,
+      "end": 37.58
+    },
+    {
+      "id": "w089",
+      "word": "the",
+      "start": 37.58,
+      "end": 37.76
+    },
+    {
+      "id": "w090",
+      "word": "CBSCE",
+      "start": 37.76,
+      "end": 38.36
+    },
+    {
+      "id": "w091",
+      "word": "officials",
+      "start": 38.36,
+      "end": 38.96
+    },
+    {
+      "id": "w092",
+      "word": "always",
+      "start": 38.96,
+      "end": 39.82
+    },
+    {
+      "id": "w093",
+      "word": "say",
+      "start": 39.82,
+      "end": 40.26
+    },
+    {
+      "id": "w094",
+      "word": "that",
+      "start": 40.26,
+      "end": 40.64
+    },
+    {
+      "id": "w095",
+      "word": "the",
+      "start": 40.64,
+      "end": 40.88
+    },
+    {
+      "id": "w096",
+      "word": "students",
+      "start": 40.88,
+      "end": 41.38
+    },
+    {
+      "id": "w097",
+      "word": "will",
+      "start": 41.38,
+      "end": 41.68
+    },
+    {
+      "id": "w098",
+      "word": "learn",
+      "start": 41.68,
+      "end": 41.96
+    },
+    {
+      "id": "w099",
+      "word": "from",
+      "start": 41.96,
+      "end": 42.24
+    },
+    {
+      "id": "w100",
+      "word": "the",
+      "start": 42.24,
+      "end": 42.48
+    },
+    {
+      "id": "w101",
+      "word": "elders.",
+      "start": 42.48,
+      "end": 42.78
+    },
+    {
+      "id": "w102",
+      "word": "But",
+      "start": 43.5,
+      "end": 43.7
+    },
+    {
+      "id": "w103",
+      "word": "this",
+      "start": 43.7,
+      "end": 43.94
+    },
+    {
+      "id": "w104",
+      "word": "time,",
+      "start": 43.94,
+      "end": 44.18
+    },
+    {
+      "id": "w105",
+      "word": "I",
+      "start": 44.44,
+      "end": 44.5
+    },
+    {
+      "id": "w106",
+      "word": "would",
+      "start": 44.5,
+      "end": 44.74
+    },
+    {
+      "id": "w107",
+      "word": "ask",
+      "start": 44.74,
+      "end": 45.62
+    },
+    {
+      "id": "w108",
+      "word": "the",
+      "start": 45.62,
+      "end": 45.98
+    },
+    {
+      "id": "w109",
+      "word": "elders",
+      "start": 45.98,
+      "end": 46.3
+    },
+    {
+      "id": "w110",
+      "word": "to",
+      "start": 46.3,
+      "end": 46.56
+    },
+    {
+      "id": "w111",
+      "word": "learn",
+      "start": 46.56,
+      "end": 46.74
+    },
+    {
+      "id": "w112",
+      "word": "from",
+      "start": 46.74,
+      "end": 47
+    },
+    {
+      "id": "w113",
+      "word": "the",
+      "start": 47,
+      "end": 47.2
+    },
+    {
+      "id": "w114",
+      "word": "students",
+      "start": 47.2,
+      "end": 47.74
+    },
+    {
+      "id": "w115",
+      "word": "and",
+      "start": 47.74,
+      "end": 48.38
+    },
+    {
+      "id": "w116",
+      "word": "please",
+      "start": 48.38,
+      "end": 48.78
+    },
+    {
+      "id": "w117",
+      "word": "use",
+      "start": 48.78,
+      "end": 49.28
+    },
+    {
+      "id": "w118",
+      "word": "condoms.",
+      "start": 49.28,
+      "end": 50.02
+    },
+    {
+      "id": "w119",
+      "word": "At",
+      "start": 50.8,
+      "end": 50.94
+    },
+    {
+      "id": "w120",
+      "word": "least",
+      "start": 50.94,
+      "end": 51.1
+    },
+    {
+      "id": "w121",
+      "word": "it",
+      "start": 51.1,
+      "end": 51.3
+    },
+    {
+      "id": "w122",
+      "word": "will",
+      "start": 51.3,
+      "end": 51.42
+    },
+    {
+      "id": "w123",
+      "word": "prevent",
+      "start": 51.42,
+      "end": 51.8
+    },
+    {
+      "id": "w124",
+      "word": "leaking.",
+      "start": 51.8,
+      "end": 52.68
+    }
+  ],
+  "protected_ranges": [],
+  "question_timestamps": [],
+  "thinking_ranges": []
+}

@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Poetry in-project virtualenv
+.venv/
+node_modules
+# Uploads and temporary files
+uploads/
+temp/
+
+# Generated outputs
+outputs/
+
+# Tool/Agent local states
+.agents/
+.env
