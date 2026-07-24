@@ -37,8 +37,8 @@ RUN mkdir -p server/uploads server/outputs server/transcripts server/assets/sfx 
 # Point the Node app at the Poetry-managed venv's python for the whisper subprocess
 ENV PYTHON_PATH=/app/server/.venv/bin/python
 
-# HF Spaces requires the app to listen on port 7860
-ENV PORT=7860
+# Don't hardcode PORT — HF Spaces expects 7860, Render/Fly inject their own via env.
+# The app already falls back to 5050 if PORT isn't set (see index.js).
 EXPOSE 7860
 
 WORKDIR /app/server
