@@ -17,7 +17,7 @@ const AI_PROVIDER = (process.env.AI_PROVIDER || "groq").toLowerCase();
 
 // ─── Model defaults per provider ─────────────────────────────────────────────
 const DEFAULT_MODELS = {
-  groq: "llama3-70b-8192",
+  groq: "llama-3.3-70b-versatile",
   ollama: "llama3",
   anthropic: "claude-3-haiku-20240307",
 };
