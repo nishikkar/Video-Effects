@@ -1,0 +1,10 @@
+**/node_modules
+**/.venv
+server/uploads/*
+server/outputs/*
+server/transcripts/*
+!server/uploads/.gitkeep
+!server/outputs/.gitkeep
+!server/transcripts/.gitkeep
+.git
+*.log
