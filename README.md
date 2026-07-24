@@ -1,4 +1,13 @@
-<<<<<<< HEAD
+---
+title: Video Effects
+emoji: 🎬
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # video_effects
 
 Standalone folder for testing and iterating on the **video → SFX → output** pipeline.
@@ -145,6 +154,23 @@ Common variables:
 
 ---
 
+## Deploying on Hugging Face Spaces
+
+This repo includes a `Dockerfile` set up as a Docker Space:
+
+- Installs Node, Python, Poetry, and `ffmpeg`
+- Runs `npm install` for the server and `poetry install` for the transcription venv
+- Listens on port `7860` (required by HF Spaces)
+
+**Required secrets** (set under Space Settings → Variables and secrets):
+
+- `GROQ_API_KEY` and/or `ANTHROPIC_API_KEY`, depending on `AI_PROVIDER`
+- `AI_PROVIDER` (optional, defaults to `groq`)
+
+Uploaded videos, outputs, and transcripts are written inside the container and are **not persistent** across Space restarts unless you attach persistent storage in the Space settings.
+
+---
+
 ## SFX catalog
 
 The project now includes a broader SFX library beyond the original five core assets.
@@ -193,7 +219,3 @@ Key ideas to convey:
 - New SFX assets can be added by placing files in `assets/sfx/` and adding entries to `AVAILABLE_SFX`
 
 Use this README as the current project summary; do not assume the old keyword-based SFX engine is still the only decision mechanism.
-=======
-# Video-Effects
-AI enabled video editing software to add sound effects in a video.
->>>>>>> 6a6303f935636ff6dd88aad23b6ea957fa41c08f
